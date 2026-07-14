@@ -40,7 +40,7 @@ window.addEventListener('scroll', () => {
 
 // --- Typing Effect ---
 const typingTextElement = document.querySelector('.typing-text');
-const words = ["Programmer Pemula", "Mahasiswa IT", "Web Developer", "Tech Enthusiast"];
+const words = ["Programmer Pemula", "Mahasiswa IT", "Web Developer", "UI/UX Designer", "AI Enthusiast", "Tech Enthusiast"];
 let wordIndex = 0;
 let charIndex = 0;
 let isDeleting = false;
