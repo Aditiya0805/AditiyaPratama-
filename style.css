@@ -301,6 +301,68 @@ ul {
     cursor: pointer;
 }
 
+/* Language Switcher */
+.lang-switcher-li {
+    display: flex;
+    align-items: center;
+}
+
+.lang-switcher {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 8px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    transition: var(--transition);
+}
+
+.lang-switcher:hover {
+    border-color: rgba(99, 102, 241, 0.4);
+    box-shadow: 0 0 12px var(--primary-glow);
+}
+
+.lang-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    font-weight: 700;
+    cursor: pointer;
+    padding: 4px 10px;
+    border-radius: 14px;
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    outline: none;
+}
+
+.lang-btn .flag-icon {
+    font-size: 0.95rem;
+    line-height: 1;
+}
+
+.lang-btn:hover {
+    color: var(--text-color);
+}
+
+.lang-btn.active {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: #ffffff;
+    box-shadow: 0 2px 8px var(--primary-glow);
+}
+
+.lang-divider {
+    color: rgba(255, 255, 255, 0.2);
+    font-size: 0.8rem;
+    user-select: none;
+}
+
 /* =========================================
    Hero Section
    ========================================= */
@@ -937,4 +999,460 @@ footer {
         height: 45px;
         font-size: 1.2rem;
     }
+}
+
+/* =========================================
+   Interactive Astronaut Companion
+   ========================================= */
+.astronaut-companion {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 100px;
+    height: 125px;
+    z-index: 999;
+    cursor: pointer;
+    user-select: none;
+    will-change: transform;
+}
+
+.astronaut-companion:hover .astronaut-svg-container {
+    filter: drop-shadow(0 15px 25px rgba(99, 102, 241, 0.7));
+}
+
+.astronaut-companion:active {
+    opacity: 0.9;
+}
+
+.astronaut-svg-container {
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(0 10px 15px rgba(99, 102, 241, 0.4));
+    animation: zeroGravityFloat 4s ease-in-out infinite alternate;
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    transform-origin: center center;
+}
+
+.astronaut-svg {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+}
+
+/* Zero Gravity Floating Animation */
+@keyframes zeroGravityFloat {
+    0% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-12px) rotate(3deg);
+    }
+    100% {
+        transform: translateY(-4px) rotate(-3deg);
+    }
+}
+
+/* Jetpack Flame Flicker Animation */
+.jetpack-flame {
+    animation: flameFlicker 0.4s ease-in-out infinite alternate;
+    transform-origin: top center;
+}
+
+@keyframes flameFlicker {
+    0% {
+        transform: scaleY(1) scaleX(1);
+        opacity: 0.85;
+    }
+    100% {
+        transform: scaleY(1.25) scaleX(0.9);
+        opacity: 1;
+    }
+}
+
+/* Waving Arm Animation */
+.astronaut-arm-wave {
+    transform-origin: 80px 68px;
+    animation: waveArm 3s ease-in-out infinite alternate;
+}
+
+@keyframes waveArm {
+    0% { transform: rotate(0deg); }
+    50% { transform: rotate(-15deg); }
+    100% { transform: rotate(10deg); }
+}
+
+/* Pulse LED */
+.pulse-led {
+    animation: pulseLed 1s infinite alternate;
+}
+
+@keyframes pulseLed {
+    0% { opacity: 0.4; }
+    100% { opacity: 1; }
+}
+
+/* Floating Stars around astronaut */
+.star-p1 { animation: starFloat 2.5s infinite alternate; }
+.star-p2 { animation: starFloat 3.5s infinite alternate 0.5s; }
+.star-p3 { animation: starFloat 2s infinite alternate 1s; }
+
+@keyframes starFloat {
+    0% { opacity: 0.2; transform: translateY(0); }
+    100% { opacity: 1; transform: translateY(-6px); }
+}
+
+/* Speech Bubble Tooltip */
+.astronaut-bubble {
+    position: absolute;
+    bottom: 125px;
+    right: 0;
+    width: 180px;
+    padding: 10px 14px;
+    border-radius: 16px;
+    background: rgba(15, 23, 42, 0.88);
+    border: 1px solid var(--primary-glow);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px) scale(0.9);
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    pointer-events: none;
+}
+
+.astronaut-companion:hover .astronaut-bubble,
+.astronaut-bubble.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+}
+
+.bubble-text {
+    font-size: 0.82rem;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    color: #ffffff;
+    display: block;
+    line-height: 1.35;
+    text-align: center;
+}
+
+.bubble-arrow {
+    position: absolute;
+    bottom: -6px;
+    right: 35px;
+    width: 12px;
+    height: 12px;
+    background: rgba(15, 23, 42, 0.88);
+    border-right: 1px solid var(--primary-glow);
+    border-bottom: 1px solid var(--primary-glow);
+    transform: rotate(45deg);
+}
+
+/* Responsive adjustment for mobile screens */
+@media (max-width: 768px) {
+    .astronaut-companion {
+        width: 80px;
+        height: 100px;
+        bottom: 15px;
+        right: 15px;
+    }
+    
+    .astronaut-bubble {
+        bottom: 105px;
+        right: -10px;
+        width: 160px;
+        padding: 8px 12px;
+    }
+    
+    .bubble-text {
+        font-size: 0.78rem;
+    }
+}
+
+/* =========================================
+   Space Particle Canvas
+   ========================================= */
+#space-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -2;
+    pointer-events: none;
+}
+
+/* =========================================
+   Custom Space Neon Cursor
+   ========================================= */
+@media (pointer: fine) {
+    .custom-cursor {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 8px;
+        height: 8px;
+        background: #06b6d4;
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 10000;
+        transform: translate(-50%, -50%);
+        box-shadow: 0 0 10px #06b6d4, 0 0 20px #6366f1;
+        transition: width 0.2s, height 0.2s, background-color 0.2s;
+    }
+
+    .custom-cursor-follower {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 32px;
+        height: 32px;
+        border: 1.5px solid rgba(99, 102, 241, 0.6);
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 9999;
+        transform: translate(-50%, -50%);
+        transition: transform 0.15s ease-out, width 0.2s, height 0.2s, border-color 0.2s;
+        box-shadow: 0 0 15px rgba(99, 102, 241, 0.2);
+    }
+
+    body.cursor-hover .custom-cursor {
+        width: 12px;
+        height: 12px;
+        background: #ff3366;
+        box-shadow: 0 0 15px #ff3366;
+    }
+
+    body.cursor-hover .custom-cursor-follower {
+        width: 48px;
+        height: 48px;
+        border-color: rgba(255, 51, 102, 0.8);
+    }
+}
+
+/* =========================================
+   Project Category Filter Tabs
+   ========================================= */
+.project-filters {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 40px;
+}
+
+.filter-btn {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    color: var(--text-muted);
+    font-family: var(--font-heading);
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 8px 22px;
+    border-radius: 30px;
+    cursor: pointer;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    transition: var(--transition);
+    outline: none;
+}
+
+.filter-btn:hover {
+    color: var(--text-color);
+    border-color: rgba(99, 102, 241, 0.4);
+    transform: translateY(-2px);
+}
+
+.filter-btn.active {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: #ffffff;
+    border-color: transparent;
+    box-shadow: 0 4px 15px var(--primary-glow);
+}
+
+.project-card.hide {
+    display: none;
+}
+
+.btn-project-modal {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: inherit;
+    padding: 0;
+}
+
+.cert-card {
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.cert-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary);
+    box-shadow: 0 12px 30px rgba(99, 102, 241, 0.3);
+}
+
+/* =========================================
+   Modal Lightbox Overlay & Cards
+   ========================================= */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(5, 5, 5, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    z-index: 10000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-card {
+    width: 100%;
+    max-width: 650px;
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 30px;
+    position: relative;
+    transform: scale(0.9) translateY(20px);
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    background: rgba(15, 23, 42, 0.95);
+    border: 1px solid var(--glass-border);
+}
+
+.modal-overlay.active .modal-card {
+    transform: scale(1) translateY(0);
+}
+
+.modal-close {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: var(--text-color);
+    font-size: 1.8rem;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+    line-height: 1;
+    z-index: 10;
+}
+
+.modal-close:hover {
+    background: #ff3366;
+    color: #ffffff;
+    transform: rotate(90deg);
+}
+
+.modal-badge {
+    display: inline-block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, var(--accent), var(--primary));
+    color: #ffffff;
+    margin-bottom: 8px;
+}
+
+.modal-header h3 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+.modal-image-container {
+    width: 100%;
+    height: 250px;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    border: 1px solid var(--glass-border);
+}
+
+.modal-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.modal-details p {
+    color: var(--text-muted);
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.modal-section {
+    margin-bottom: 20px;
+}
+
+.modal-section h4 {
+    font-size: 1.05rem;
+    color: var(--accent);
+    margin-bottom: 10px;
+}
+
+.modal-features-list {
+    list-style: none;
+    padding: 0;
+}
+
+.modal-features-list li {
+    position: relative;
+    padding-left: 24px;
+    margin-bottom: 8px;
+    color: var(--text-color);
+    font-size: 0.95rem;
+}
+
+.modal-features-list li::before {
+    content: '⚡';
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+/* Certificate Lightbox Modal Card */
+.cert-modal-card {
+    max-width: 800px;
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+}
+
+.cert-modal-card img {
+    max-width: 100%;
+    max-height: 75vh;
+    border-radius: 12px;
+    object-fit: contain;
+    margin-bottom: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.cert-modal-card h4 {
+    font-size: 1.2rem;
+    color: var(--text-color);
 }

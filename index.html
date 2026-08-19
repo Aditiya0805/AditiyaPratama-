@@ -20,8 +20,13 @@
 </head>
 
 <body>
-    <!-- Background Elements -->
+    <!-- Custom Glowing Space Cursor -->
+    <div id="custom-cursor" class="custom-cursor"></div>
+    <div id="custom-cursor-follower" class="custom-cursor-follower"></div>
+
+    <!-- Background Elements & Interactive Space Canvas -->
     <div class="bg-shapes">
+        <canvas id="space-canvas"></canvas>
         <div class="shape shape-1"></div>
         <div class="shape shape-2"></div>
         <div class="shape shape-3"></div>
@@ -32,12 +37,23 @@
         <div class="container nav-container">
             <a href="#" class="logo">Aditiya<span>.dev</span></a>
             <ul class="nav-links">
-                <li><a href="#home">Beranda</a></li>
-                <li><a href="#about">Tentang</a></li>
-                <li><a href="#skills">Keahlian</a></li>
-                <li><a href="#projects">Proyek</a></li>
-                <li><a href="#achievements">Prestasi</a></li>
-                <li><a href="#contact" class="btn-primary-sm">Kontak</a></li>
+                <li><a href="#home" data-i18n="nav.home">Beranda</a></li>
+                <li><a href="#about" data-i18n="nav.about">Tentang</a></li>
+                <li><a href="#skills" data-i18n="nav.skills">Keahlian</a></li>
+                <li><a href="#projects" data-i18n="nav.projects">Proyek</a></li>
+                <li><a href="#achievements" data-i18n="nav.achievements">Prestasi</a></li>
+                <li><a href="#contact" class="btn-primary-sm" data-i18n="nav.contact">Kontak</a></li>
+                <li class="lang-switcher-li">
+                    <div class="lang-switcher">
+                        <button type="button" class="lang-btn active" data-lang="id" aria-label="Bahasa Indonesia">
+                            <span class="flag-icon">🇮🇩</span> ID
+                        </button>
+                        <span class="lang-divider">/</span>
+                        <button type="button" class="lang-btn" data-lang="en" aria-label="English">
+                            <span class="flag-icon">🇬🇧</span> EN
+                        </button>
+                    </div>
+                </li>
             </ul>
             <div class="hamburger">
                 <i class="fas fa-bars"></i>
@@ -49,16 +65,16 @@
     <section id="home" class="hero">
         <div class="container hero-container">
             <div class="hero-content">
-                <h3 class="fade-in-up" style="animation-delay: 0.1s;">Halo, perkenalkan saya</h3>
+                <h3 class="fade-in-up" style="animation-delay: 0.1s;" data-i18n="hero.greeting">Halo, perkenalkan saya</h3>
                 <h1 class="fade-in-up" style="animation-delay: 0.2s;">Aditiya Pratama</h1>
-                <h2 class="fade-in-up" style="animation-delay: 0.3s;">Saya seorang <span
+                <h2 class="fade-in-up" style="animation-delay: 0.3s;"><span data-i18n="hero.role_prefix">Saya seorang</span> <span
                         class="typing-text"></span><span class="cursor">&nbsp;</span></h2>
-                <p class="fade-in-up" style="animation-delay: 0.4s;">Mahasiswa Informatika, UI/UX Designer, dan AI Enthusiast yang bersemangat
+                <p class="fade-in-up" style="animation-delay: 0.4s;" data-i18n="hero.description">Mahasiswa Informatika, UI/UX Designer, dan AI Enthusiast yang bersemangat
                     mengeksplorasi pemrograman, perancangan antarmuka, serta perkembangan kecerdasan buatan. Menyukai tantangan baru dan selalu ingin belajar teknologi terkini
                     untuk menciptakan solusi digital yang bermanfaat.</p>
                 <div class="hero-btns fade-in-up" style="animation-delay: 0.5s;">
-                    <a href="#projects" class="btn btn-primary">Lihat Proyek</a>
-                    <a href="#contact" class="btn btn-outline">Hubungi Saya</a>
+                    <a href="#projects" class="btn btn-primary" data-i18n="hero.btn_projects">Lihat Proyek</a>
+                    <a href="#contact" class="btn btn-outline" data-i18n="hero.btn_contact">Hubungi Saya</a>
                 </div>
             </div>
             <div class="hero-image fade-in-up" style="animation-delay: 0.4s;">
@@ -78,28 +94,28 @@
     <section id="about" class="about section-padding">
         <div class="container">
             <div class="section-header reveal">
-                <h2>Tentang <span>Saya</span></h2>
+                <h2><span data-i18n="about.title_prefix">Tentang</span> <span data-i18n="about.title_highlight">Saya</span></h2>
                 <div class="line"></div>
             </div>
             <div class="about-content reveal">
                 <div class="about-text glass">
-                    <p>Sebagai seorang <strong>Mahasiswa Informatika</strong>, <strong>UI/UX Designer</strong>, dan pecinta teknologi <strong>Kecerdasan Buatan (AI)</strong>, saya memiliki ketertarikan mendalam pada
+                    <p data-i18n="about.p1">Sebagai seorang <strong>Mahasiswa Informatika</strong>, <strong>UI/UX Designer</strong>, dan pecinta teknologi <strong>Kecerdasan Buatan (AI)</strong>, saya memiliki ketertarikan mendalam pada
                         logika pemrograman, perancangan antarmuka pengguna yang intuitif, serta implementasi teknologi AI untuk memecahkan masalah. Meskipun masih di tahap pemula, saya memiliki
                         dedikasi tinggi untuk terus mengembangkan keterampilan saya.</p>
-                    <p>Saya percaya bahwa kode yang baik bukan hanya yang berfungsi, tetapi juga elegan, efisien, dan
+                    <p data-i18n="about.p2">Saya percaya bahwa kode yang baik bukan hanya yang berfungsi, tetapi juga elegan, efisien, dan
                         mudah dipahami. Saat ini, fokus utama saya adalah menguasai teknologi web modern.</p>
                     <div class="about-stats">
                         <div class="stat-item">
                             <h3 class="counter" data-target="10">0</h3>
-                            <p>Proyek Kecil</p>
+                            <p data-i18n="about.stat_projects">Proyek Kecil</p>
                         </div>
                         <div class="stat-item">
                             <h3 class="counter" data-target="1000">0</h3>
-                            <p>Baris Kode</p>
+                            <p data-i18n="about.stat_lines">Baris Kode</p>
                         </div>
                         <div class="stat-item">
                             <h3 class="counter" data-target="3">0</h3>
-                            <p>Bahasa Dikuasai</p>
+                            <p data-i18n="about.stat_languages">Bahasa Dikuasai</p>
                         </div>
                     </div>
                 </div>
@@ -111,7 +127,7 @@
     <section id="skills" class="skills section-padding">
         <div class="container">
             <div class="section-header reveal">
-                <h2>Keahlian <span>Teknis</span></h2>
+                <h2><span data-i18n="skills.title_prefix">Keahlian</span> <span data-i18n="skills.title_highlight">Teknis</span></h2>
                 <div class="line"></div>
             </div>
             <div class="skills-grid reveal">
@@ -159,21 +175,21 @@
                 </div>
                 <div class="skill-card glass">
                     <i class="fab fa-figma skill-icon" style="color: #F24E1E;"></i>
-                    <h3>Figma (Game Design)</h3>
+                    <h3>Figma <span data-i18n="skills.figma_sub">(Game Design)</span></h3>
                     <div class="progress-bar">
                         <div class="progress" style="width: 0%;" data-width="80%"></div>
                     </div>
                 </div>
                 <div class="skill-card glass">
                     <i class="fas fa-pen-nib skill-icon" style="color: #EC4899;"></i>
-                    <h3>UI/UX Design</h3>
+                    <h3 data-i18n="skills.uiux">UI/UX Design</h3>
                     <div class="progress-bar">
                         <div class="progress" style="width: 0%;" data-width="85%"></div>
                     </div>
                 </div>
                 <div class="skill-card glass">
                     <i class="fas fa-brain skill-icon" style="color: #10B981;"></i>
-                    <h3>Artificial Intelligence (AI)</h3>
+                    <h3 data-i18n="skills.ai">Kecerdasan Buatan (AI)</h3>
                     <div class="progress-bar">
                         <div class="progress" style="width: 0%;" data-width="70%"></div>
                     </div>
@@ -186,74 +202,92 @@
     <section id="projects" class="projects section-padding">
         <div class="container">
             <div class="section-header reveal">
-                <h2>Proyek <span>Terbaru</span></h2>
+                <h2><span data-i18n="projects.title_prefix">Proyek</span> <span data-i18n="projects.title_highlight">Terbaru</span></h2>
                 <div class="line"></div>
             </div>
+
+            <!-- Project Category Filters -->
+            <div class="project-filters reveal">
+                <button type="button" class="filter-btn active" data-filter="all" data-i18n="projects.filter_all">Semua</button>
+                <button type="button" class="filter-btn" data-filter="web" data-i18n="projects.filter_web">Web & POS</button>
+                <button type="button" class="filter-btn" data-filter="mobile" data-i18n="projects.filter_mobile">Mobile & SIG</button>
+                <button type="button" class="filter-btn" data-filter="design" data-i18n="projects.filter_design">UI/UX & Game</button>
+                <button type="button" class="filter-btn" data-filter="ai" data-i18n="projects.filter_ai">AI & Vision</button>
+            </div>
+
             <div class="projects-grid">
                 <!-- Project 1 -->
-                <div class="project-card glass reveal tilt">
+                <div class="project-card glass reveal tilt" data-category="web" data-project="yohebemi">
                     <div class="project-image">
                         <img src="yohebemi.png" alt="YOHEBEMI - Sistem Kasir ATK">
                     </div>
                     <div class="project-info">
-                        <h3>YOHEBEMI - Sistem Kasir ATK</h3>
-                        <p>Sistem Point of Sale (POS) berbasis web untuk mencatat transaksi penjualan alat tulis kantor (ATK), manajemen keranjang belanja, kalkulasi otomatis, dan cetak struk.</p>
+                        <h3 data-i18n="projects.p1_title">YOHEBEMI - Sistem Kasir ATK</h3>
+                        <p data-i18n="projects.p1_desc">Sistem Point of Sale (POS) berbasis web untuk mencatat transaksi penjualan alat tulis kantor (ATK), manajemen keranjang belanja, kalkulasi otomatis, dan cetak struk.</p>
                         <div class="project-tags">
                             <span>HTML</span>
                             <span>CSS</span>
                             <span>JS</span>
                             <span>POS</span>
                         </div>
-                        <a href="#" class="btn-text">Lihat Detail <i class="fas fa-arrow-right"></i></a>
+                        <button type="button" class="btn-text btn-project-modal" data-project="yohebemi">
+                            <span data-i18n="projects.btn_detail">Lihat Detail</span> <i class="fas fa-arrow-right"></i>
+                        </button>
                     </div>
                 </div>
                 <!-- Project 2 -->
-                <div class="project-card glass reveal tilt" style="transition-delay: 0.1s;">
+                <div class="project-card glass reveal tilt" data-category="mobile" data-project="sigapin" style="transition-delay: 0.1s;">
                     <div class="project-image">
                         <img src="sigapin.png" alt="SIGAPIN - Desa Tanggap Bencana">
                     </div>
                     <div class="project-info">
-                        <h3>SIGAPIN - Desa Tanggap Bencana</h3>
-                        <p>Sistem Informasi Geografis Peringatan Dini & Informasi Bencana berbasis mobile untuk meningkatkan kesiapsiagaan desa.</p>
+                        <h3 data-i18n="projects.p2_title">SIGAPIN - Desa Tanggap Bencana</h3>
+                        <p data-i18n="projects.p2_desc">Sistem Informasi Geografis Peringatan Dini & Informasi Bencana berbasis mobile untuk meningkatkan kesiapsiagaan desa.</p>
                         <div class="project-tags">
-                            <span>SIG</span>
+                            <span data-i18n="projects.p2_tag1">SIG</span>
                             <span>Mobile</span>
-                            <span>Peta</span>
+                            <span data-i18n="projects.p2_tag3">Peta</span>
                         </div>
-                        <a href="#" class="btn-text">Lihat Detail <i class="fas fa-arrow-right"></i></a>
+                        <button type="button" class="btn-text btn-project-modal" data-project="sigapin">
+                            <span data-i18n="projects.btn_detail">Lihat Detail</span> <i class="fas fa-arrow-right"></i>
+                        </button>
                     </div>
                 </div>
                 <!-- Project 3 -->
-                <div class="project-card glass reveal tilt" style="transition-delay: 0.2s;">
+                <div class="project-card glass reveal tilt" data-category="design" data-project="krui" style="transition-delay: 0.2s;">
                     <div class="project-image">
                         <img src="game_design.png" alt="Desain Game Pemula">
                     </div>
                     <div class="project-info">
-                        <h3>Desain Game Pemula (Krui Adventure)</h3>
-                        <p>Perancangan konsep UI/UX, pohon skill, peta petualangan, dan visual aset game Krui Adventure menggunakan Figma.</p>
+                        <h3 data-i18n="projects.p3_title">Desain Game Pemula (Krui Adventure)</h3>
+                        <p data-i18n="projects.p3_desc">Perancangan konsep UI/UX, pohon skill, peta petualangan, dan visual aset game Krui Adventure menggunakan Figma.</p>
                         <div class="project-tags">
                             <span>Figma</span>
                             <span>Game Design</span>
                             <span>UI/UX</span>
                         </div>
-                        <a href="#" class="btn-text">Lihat Detail <i class="fas fa-arrow-right"></i></a>
+                        <button type="button" class="btn-text btn-project-modal" data-project="krui">
+                            <span data-i18n="projects.btn_detail">Lihat Detail</span> <i class="fas fa-arrow-right"></i>
+                        </button>
                     </div>
                 </div>
                 <!-- Project 4 -->
-                <div class="project-card glass reveal tilt" style="transition-delay: 0.3s;">
+                <div class="project-card glass reveal tilt" data-category="ai" data-project="cybervision" style="transition-delay: 0.3s;">
                     <div class="project-image">
                         <img src="cyber_vision.jpg" alt="Cyber Vision Detector">
                     </div>
                     <div class="project-info">
                         <h3>Cyber Vision Detector</h3>
-                        <p>Aplikasi deteksi objek real-time berbasis Computer Vision untuk mendeteksi, mengklasifikasi, dan menghitung objek/orang secara dinamis menggunakan kecerdasan buatan.</p>
+                        <p data-i18n="projects.p4_desc">Aplikasi deteksi objek real-time berbasis Computer Vision untuk mendeteksi, mengklasifikasi, dan menghitung objek/orang secara dinamis menggunakan kecerdasan buatan.</p>
                         <div class="project-tags">
                             <span>Python</span>
                             <span>Computer Vision</span>
                             <span>AI</span>
                             <span>OpenCV</span>
                         </div>
-                        <a href="#" class="btn-text">Lihat Detail <i class="fas fa-arrow-right"></i></a>
+                        <button type="button" class="btn-text btn-project-modal" data-project="cybervision">
+                            <span data-i18n="projects.btn_detail">Lihat Detail</span> <i class="fas fa-arrow-right"></i>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -264,33 +298,33 @@
     <section id="achievements" class="achievements section-padding">
         <div class="container">
             <div class="section-header reveal">
-                <h2>Prestasi & <span>Pencapaian</span></h2>
+                <h2><span data-i18n="achievements.title_prefix">Prestasi &</span> <span data-i18n="achievements.title_highlight">Pencapaian</span></h2>
                 <div class="line"></div>
             </div>
             <div class="achievements-grid">
                 <!-- Achievement 1 -->
-                <div class="achievement-card glass reveal">
+                <div class="achievement-card glass reveal cert-card" data-cert-img="sertifikat_unnes.png" data-cert-title="Harapan 1 Lomba Desain UI/UX UNNES 2026">
                     <div class="achievement-image">
                         <img src="sertifikat_unnes.png" alt="Sertifikat Harapan 1 Lomba Desain UI/UX UNNES">
                     </div>
                     <div class="achievement-info">
-                        <span class="achievement-date">23 Mei 2026</span>
-                        <h3>Harapan 1 Lomba Desain UI/UX</h3>
-                        <p>Meraih peringkat Harapan 1 dalam ajang Kamabea Inovasi Digital Mahasiswa tingkat nasional bertema SDGs yang diselenggarakan oleh FMIPA Universitas Negeri Semarang (UNNES).</p>
-                        <span class="achievement-badge">Harapan 1</span>
+                        <span class="achievement-date" data-i18n="achievements.a1_date">23 Mei 2026</span>
+                        <h3 data-i18n="achievements.a1_title">Harapan 1 Lomba Desain UI/UX</h3>
+                        <p data-i18n="achievements.a1_desc">Meraih peringkat Harapan 1 dalam ajang Kamabea Inovasi Digital Mahasiswa tingkat nasional bertema SDGs yang diselenggarakan oleh FMIPA Universitas Negeri Semarang (UNNES).</p>
+                        <span class="achievement-badge" data-i18n="achievements.a1_badge">Harapan 1</span>
                     </div>
                 </div>
                 
                 <!-- Achievement 2 -->
-                <div class="achievement-card glass reveal" style="transition-delay: 0.1s;">
+                <div class="achievement-card glass reveal cert-card" data-cert-img="juara_3_ai.jpg" data-cert-title="Juara 3 Kecerdasan Buatan (AI) Innovation Expo 2026" style="transition-delay: 0.1s;">
                     <div class="achievement-image">
                         <img src="juara_3_ai.jpg" alt="Foto Juara 3 Kecerdasan Buatan Innovation Expo">
                     </div>
                     <div class="achievement-info">
-                        <span class="achievement-date">13 Juni 2026</span>
-                        <h3>Juara 3 Kecerdasan Buatan (AI)</h3>
-                        <p>Meraih peringkat Juara 3 dalam bidang Kecerdasan Buatan pada ajang Innovation Expo Universitas Teknokrat Indonesia yang bertema "Sustainable, Impactful, Smart Lampung".</p>
-                        <span class="achievement-badge">Juara 3</span>
+                        <span class="achievement-date" data-i18n="achievements.a2_date">13 Juni 2026</span>
+                        <h3 data-i18n="achievements.a2_title">Juara 3 Kecerdasan Buatan (AI)</h3>
+                        <p data-i18n="achievements.a2_desc">Meraih peringkat Juara 3 dalam bidang Kecerdasan Buatan pada ajang Innovation Expo Universitas Teknokrat Indonesia yang bertema "Sustainable, Impactful, Smart Lampung".</p>
+                        <span class="achievement-badge" data-i18n="achievements.a2_badge">Juara 3</span>
                     </div>
                 </div>
             </div>
@@ -301,16 +335,16 @@
     <section id="contact" class="contact section-padding">
         <div class="container">
             <div class="section-header reveal">
-                <h2>Hubungi <span>Saya</span></h2>
+                <h2><span data-i18n="contact.title_prefix">Hubungi</span> <span data-i18n="contact.title_highlight">Saya</span></h2>
                 <div class="line"></div>
             </div>
             <div class="contact-content glass reveal">
                 <div class="contact-info">
-                    <h3>Mari Berkolaborasi!</h3>
-                    <p>Tertarik dengan profil saya atau ingin berdiskusi mengenai teknologi? Jangan ragu untuk menghubungi saya.</p>
+                    <h3 data-i18n="contact.subtitle">Mari Berkolaborasi!</h3>
+                    <p data-i18n="contact.desc">Tertarik dengan profil saya atau ingin berdiskusi mengenai teknologi? Jangan ragu untuk menghubungi saya.</p>
                     <ul class="contact-list">
                         <li><i class="fas fa-envelope"></i> adityapratama2292@gmail.com</li>
-                        <li><i class="fas fa-map-marker-alt"></i> Bandar Lampung, Indonesia</li>
+                        <li><i class="fas fa-map-marker-alt"></i> <span data-i18n="contact.location">Bandar Lampung, Indonesia</span></li>
                     </ul>
                     <div class="social-links">
                         <a href="https://github.com/Aditiya0805" class="social-btn"><i class="fab fa-github"></i></a>
@@ -322,15 +356,15 @@
                 </div>
                 <form class="contact-form">
                     <div class="form-group">
-                        <input type="text" placeholder="Nama Anda" required>
+                        <input type="text" placeholder="Nama Anda" data-i18n-placeholder="contact.form_name" required>
                     </div>
                     <div class="form-group">
-                        <input type="email" placeholder="Email Anda" required>
+                        <input type="email" placeholder="Email Anda" data-i18n-placeholder="contact.form_email" required>
                     </div>
                     <div class="form-group">
-                        <textarea placeholder="Pesan Anda" rows="5" required></textarea>
+                        <textarea placeholder="Pesan Anda" data-i18n-placeholder="contact.form_message" rows="5" required></textarea>
                     </div>
-                    <button type="submit" class="btn btn-primary btn-block">Kirim Pesan <i
+                    <button type="submit" class="btn btn-primary btn-block"><span data-i18n="contact.form_submit">Kirim Pesan</span> <i
                             class="fas fa-paper-plane"></i></button>
                 </form>
             </div>
@@ -340,10 +374,123 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p>&copy; 2026 Aditiya Pratama. Dibuat dengan <i class="fas fa-heart" style="color: #ff3366;"></i> & Kode.
+            <p>&copy; 2026 Aditiya Pratama. <span data-i18n="footer.text">Dibuat dengan</span> <i class="fas fa-heart" style="color: #ff3366;"></i> & <span data-i18n="footer.code">Kode</span>.
             </p>
         </div>
     </footer>
+
+    <!-- Interactive Astronaut Companion -->
+    <div id="astronaut-companion" class="astronaut-companion" title="Klik astronot untuk kembali ke atas! / Click to scroll to top!">
+        <div class="astronaut-bubble glass">
+            <span class="bubble-text" data-i18n="astronaut.quote1">Halo! Mari jelajahi karya Aditiya! 🚀</span>
+            <div class="bubble-arrow"></div>
+        </div>
+        <div class="astronaut-svg-container">
+            <svg class="astronaut-svg" viewBox="0 0 120 150" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="visor-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#06b6d4" />
+                        <stop offset="50%" stop-color="#6366f1" />
+                        <stop offset="100%" stop-color="#8b5cf6" />
+                    </linearGradient>
+                    <linearGradient id="suit-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#ffffff" />
+                        <stop offset="100%" stop-color="#cbd5e1" />
+                    </linearGradient>
+                    <linearGradient id="flame-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" stop-color="#ff9900" />
+                        <stop offset="50%" stop-color="#ff3366" />
+                        <stop offset="100%" stop-color="#6366f1" stop-opacity="0" />
+                    </linearGradient>
+                    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+                        <feGaussianBlur stdDeviation="3" result="blur" />
+                        <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                    </filter>
+                </defs>
+
+                <!-- Jetpack Thruster Flame -->
+                <path class="jetpack-flame" d="M 45 105 Q 50 135 55 105 Z" fill="url(#flame-grad)" opacity="0.9" />
+                <path class="jetpack-flame" d="M 65 105 Q 70 135 75 105 Z" fill="url(#flame-grad)" opacity="0.9" />
+
+                <!-- Jetpack -->
+                <rect x="38" y="55" width="44" height="42" rx="8" fill="#475569" stroke="#1e293b" stroke-width="2" />
+                <rect x="42" y="60" width="16" height="32" rx="4" fill="#64748b" />
+                <rect x="62" y="60" width="16" height="32" rx="4" fill="#64748b" />
+
+                <!-- Astronaut Body / Suit -->
+                <ellipse cx="60" cy="78" rx="22" ry="24" fill="url(#suit-grad)" stroke="#94a3b8" stroke-width="2" />
+                
+                <!-- Chest Controls & Badge -->
+                <rect x="50" y="68" width="20" height="14" rx="3" fill="#1e293b" />
+                <circle cx="56" cy="75" r="2.5" fill="#06b6d4" class="pulse-led" />
+                <circle cx="64" cy="75" r="2.5" fill="#ff3366" />
+
+                <!-- Left Arm -->
+                <path d="M 40 68 Q 24 75 28 88" fill="none" stroke="url(#suit-grad)" stroke-width="9" stroke-linecap="round" />
+                <circle cx="27" cy="89" r="5" fill="#6366f1" />
+
+                <!-- Right Arm (Waving gesture) -->
+                <path class="astronaut-arm-wave" d="M 80 68 Q 98 62 94 48" fill="none" stroke="url(#suit-grad)" stroke-width="9" stroke-linecap="round" />
+                <circle cx="94" cy="47" r="5" fill="#6366f1" />
+
+                <!-- Legs -->
+                <path d="M 48 98 Q 44 118 42 124" fill="none" stroke="url(#suit-grad)" stroke-width="10" stroke-linecap="round" />
+                <path d="M 72 98 Q 76 118 78 124" fill="none" stroke="url(#suit-grad)" stroke-width="10" stroke-linecap="round" />
+                <ellipse cx="40" cy="126" rx="6" ry="4" fill="#475569" />
+                <ellipse cx="80" cy="126" rx="6" ry="4" fill="#475569" />
+
+                <!-- Helmet Head -->
+                <circle cx="60" cy="38" r="24" fill="url(#suit-grad)" stroke="#cbd5e1" stroke-width="2" />
+                
+                <!-- Visor -->
+                <ellipse cx="60" cy="38" rx="17" ry="14" fill="url(#visor-grad)" filter="url(#glow)" />
+                <!-- Visor Shine Reflection -->
+                <path d="M 50 30 Q 64 27 70 33 Q 62 31 52 35 Z" fill="#ffffff" opacity="0.6" />
+                <circle cx="70" cy="42" r="1.5" fill="#ffffff" opacity="0.7" />
+
+                <!-- Floating Star Particles -->
+                <circle cx="12" cy="30" r="1.5" fill="#06b6d4" class="star-p1" />
+                <circle cx="105" cy="80" r="2" fill="#8b5cf6" class="star-p2" />
+                <circle cx="20" cy="110" r="1" fill="#ffffff" class="star-p3" />
+            </svg>
+        </div>
+    </div>
+
+    <!-- Project Detail Lightbox Modal -->
+    <div id="project-modal" class="modal-overlay" aria-hidden="true">
+        <div class="modal-card glass">
+            <button type="button" class="modal-close" aria-label="Close modal">&times;</button>
+            <div class="modal-header">
+                <span class="modal-badge" id="modal-category">Category</span>
+                <h3 id="modal-title">Project Title</h3>
+            </div>
+            <div class="modal-body">
+                <div class="modal-image-container">
+                    <img id="modal-img" src="" alt="Project Preview">
+                </div>
+                <div class="modal-details">
+                    <p id="modal-desc">Project Description</p>
+                    <div class="modal-section">
+                        <h4 data-i18n="modal.tech_header">Teknologi Digunakan:</h4>
+                        <div id="modal-tags" class="project-tags"></div>
+                    </div>
+                    <div class="modal-section">
+                        <h4 data-i18n="modal.features_header">Fitur Utama:</h4>
+                        <ul id="modal-features" class="modal-features-list"></ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Certificate Image Lightbox Modal -->
+    <div id="certificate-modal" class="modal-overlay" aria-hidden="true">
+        <div class="cert-modal-card glass">
+            <button type="button" class="modal-close cert-close" aria-label="Close certificate">&times;</button>
+            <img id="cert-img" src="" alt="Certificate Full Preview">
+            <h4 id="cert-caption">Certificate Title</h4>
+        </div>
+    </div>
 
     <!-- Script -->
     <script src="script.js"></script>
