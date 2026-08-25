@@ -824,8 +824,110 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
+// --- Cyber Cosmic Splash Screen Controller ---
+function initSplashScreen() {
+    const splash = document.getElementById('splash-screen');
+    const progressBar = document.getElementById('splash-progress-bar');
+    const percentText = document.getElementById('splash-percent');
+    const statusText = document.getElementById('splash-status-text');
+    const skipBtn = document.getElementById('splash-skip-btn');
+
+    if (!splash) return;
+
+    // Lock body scroll during splash
+    document.body.classList.add('splash-active');
+
+    let currentPercent = 0;
+    let isLoaded = false;
+    let isDismissed = false;
+
+    const statusStages = [
+        { threshold: 25, text: "INITIALIZING SYSTEM CORE..." },
+        { threshold: 55, text: "CALIBRATING AI & GRAPHICS..." },
+        { threshold: 85, text: "LOADING INTERFACE MODULES..." },
+        { threshold: 99, text: "FINALIZING ENVIRONMENT..." },
+        { threshold: 100, text: "SYSTEM READY • WELCOME" }
+    ];
+
+    function updateStatus(val) {
+        if (!statusText) return;
+        const stage = statusStages.find(s => val <= s.threshold) || statusStages[statusStages.length - 1];
+        if (statusText.innerText !== stage.text) {
+            statusText.innerText = stage.text;
+        }
+    }
+
+    function dismissSplash() {
+        if (isDismissed) return;
+        isDismissed = true;
+
+        if (progressBar) progressBar.style.width = '100%';
+        if (percentText) percentText.innerText = '100%';
+        if (statusText) statusText.innerText = 'SYSTEM READY • WELCOME';
+
+        setTimeout(() => {
+            splash.classList.add('splash-finished');
+            document.body.classList.remove('splash-active');
+
+            setTimeout(() => {
+                splash.style.display = 'none';
+            }, 850);
+        }, 350);
+    }
+
+    // Smooth progress animation loop
+    const interval = setInterval(() => {
+        if (isDismissed) {
+            clearInterval(interval);
+            return;
+        }
+
+        if (isLoaded) {
+            currentPercent += Math.ceil((100 - currentPercent) * 0.28) + 2;
+        } else {
+            if (currentPercent < 88) {
+                currentPercent += Math.floor(Math.random() * 4) + 1;
+            }
+        }
+
+        if (currentPercent >= 100) {
+            currentPercent = 100;
+            clearInterval(interval);
+            dismissSplash();
+        }
+
+        if (progressBar) progressBar.style.width = `${currentPercent}%`;
+        if (percentText) percentText.innerText = `${currentPercent}%`;
+        updateStatus(currentPercent);
+    }, 40);
+
+    // Trigger completion on window load
+    window.addEventListener('load', () => {
+        setTimeout(() => {
+            isLoaded = true;
+        }, 500);
+    });
+
+    // Safety fallback timer to prevent infinite loader
+    setTimeout(() => {
+        isLoaded = true;
+    }, 2400);
+
+    // Skip button click handler
+    if (skipBtn) {
+        skipBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            clearInterval(interval);
+            dismissSplash();
+        });
+    }
+}
+
 // --- Initial Setup on DOM Content Loaded ---
 document.addEventListener("DOMContentLoaded", () => {
+    // Initialize Splash Screen first
+    initSplashScreen();
+
     // Bind Language Switcher Buttons
     document.querySelectorAll('.lang-btn').forEach(btn => {
         btn.addEventListener('click', () => {
@@ -843,3 +945,4 @@ document.addEventListener("DOMContentLoaded", () => {
     // Initialize Language & Start Typing Animation
     setLanguage(currentLang);
 });
+

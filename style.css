@@ -370,7 +370,8 @@ ul {
     min-height: 100vh;
     display: flex;
     align-items: center;
-    padding-top: 80px; /* Offset for nav */
+    padding-top: 120px; /* Safe offset for floating nav */
+    padding-bottom: 60px;
 }
 
 .hero-container {
@@ -931,14 +932,24 @@ footer {
    Responsive Design
    ========================================= */
 @media (max-width: 992px) {
+    .navbar {
+        width: 92%;
+    }
+
+    .hero {
+        padding-top: 130px;
+        min-height: auto;
+        padding-bottom: 70px;
+    }
+
     .hero-container {
         grid-template-columns: 1fr;
         text-align: center;
-        gap: 60px;
+        gap: 50px;
     }
     
     .hero-content h1 {
-        font-size: 3rem;
+        font-size: 3.2rem;
     }
     
     .hero-content p {
@@ -955,19 +966,70 @@ footer {
 }
 
 @media (max-width: 768px) {
+    .navbar {
+        top: 12px;
+        width: calc(100% - 28px);
+        border-radius: 20px;
+        background: rgba(10, 10, 15, 0.8);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    }
+    
+    .navbar.scrolled {
+        top: 8px;
+        background: rgba(5, 5, 8, 0.95);
+        box-shadow: 0 10px 35px rgba(0, 0, 0, 0.6);
+    }
+
+    .nav-container {
+        padding: 10px 18px;
+    }
+
+    .logo {
+        font-size: 1.35rem;
+    }
+
+    .hero {
+        padding-top: 130px; /* Generous breathing room so navbar never covers text */
+        min-height: auto;
+        padding-bottom: 60px;
+    }
+
+    .hero-content h3 {
+        font-size: 1.05rem;
+        margin-bottom: 8px;
+        letter-spacing: 0.5px;
+    }
+
+    .hero-content h1 {
+        font-size: 2.8rem;
+    }
+
+    .hero-content h2 {
+        font-size: 1.6rem;
+    }
+
     .nav-links {
         position: fixed;
-        top: 80px;
+        top: 68px;
         right: -100%;
-        width: 250px;
+        width: min(280px, 85vw);
         height: calc(100vh - 80px);
-        background: rgba(5, 5, 5, 0.95);
-        backdrop-filter: blur(10px);
+        background: rgba(8, 8, 14, 0.96);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
         flex-direction: column;
         align-items: center;
-        padding-top: 50px;
-        transition: right 0.3s ease;
+        justify-content: flex-start;
+        gap: 22px;
+        padding: 40px 20px;
+        transition: right 0.35s cubic-bezier(0.16, 1, 0.3, 1);
         border-left: 1px solid var(--glass-border);
+        border-radius: 24px 0 0 24px;
+        box-shadow: -15px 0 40px rgba(0, 0, 0, 0.7);
+        z-index: 999;
     }
     
     .nav-links.active {
@@ -975,7 +1037,22 @@ footer {
     }
     
     .hamburger {
-        display: block;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 38px;
+        height: 38px;
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        color: var(--text-color);
+        font-size: 1.2rem;
+        transition: var(--transition);
+    }
+
+    .hamburger:hover {
+        background: rgba(255, 255, 255, 0.1);
+        border-color: rgba(99, 102, 241, 0.4);
     }
     
     .about-stats {
@@ -985,19 +1062,67 @@ footer {
 }
 
 @media (max-width: 480px) {
+    .navbar {
+        top: 10px;
+        width: calc(100% - 20px);
+        border-radius: 16px;
+    }
+
+    .nav-container {
+        padding: 8px 14px;
+    }
+
+    .logo {
+        font-size: 1.2rem;
+    }
+
+    .hero {
+        padding-top: 125px; /* Ensures clear separation from navbar on small screens */
+        padding-bottom: 45px;
+    }
+
+    .hero-content h3 {
+        font-size: 0.95rem;
+        margin-bottom: 6px;
+    }
+
     .hero-content h1 {
-        font-size: 2.5rem;
+        font-size: 2.3rem;
+        line-height: 1.15;
+        margin-bottom: 8px;
+    }
+
+    .hero-content h2 {
+        font-size: 1.3rem;
+        margin-bottom: 15px;
+    }
+
+    .hero-content p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+        margin-bottom: 25px;
     }
     
     .image-wrapper {
-        width: 250px;
-        height: 250px;
+        width: 240px;
+        height: 240px;
     }
     
     .floating-badge {
-        width: 45px;
-        height: 45px;
-        font-size: 1.2rem;
+        width: 42px;
+        height: 42px;
+        font-size: 1.1rem;
+    }
+
+    .hero-btns {
+        flex-direction: column;
+        width: 100%;
+        gap: 12px;
+    }
+
+    .hero-btns .btn {
+        width: 100%;
+        text-align: center;
     }
 }
 
@@ -1456,3 +1581,462 @@ footer {
     font-size: 1.2rem;
     color: var(--text-color);
 }
+
+/* =========================================
+   Cyber Cosmic Splash Screen / Preloader
+   ========================================= */
+body.splash-active {
+    overflow: hidden !important;
+    height: 100vh !important;
+}
+
+.splash-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #030307;
+    z-index: 999999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                filter 0.8s ease,
+                visibility 0.8s;
+    perspective: 1000px;
+}
+
+.splash-screen.splash-finished {
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(1.08);
+    filter: blur(12px);
+    pointer-events: none;
+}
+
+/* Splash Backdrop & Animated Atmosphere */
+.splash-backdrop {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.splash-glow {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(90px);
+    opacity: 0.45;
+    animation: splashGlowPulse 6s ease-in-out infinite alternate;
+}
+
+.splash-glow-1 {
+    width: 450px;
+    height: 450px;
+    background: radial-gradient(circle, var(--accent) 0%, rgba(6, 182, 212, 0) 70%);
+    top: 15%;
+    left: 20%;
+}
+
+.splash-glow-2 {
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, var(--primary) 0%, rgba(99, 102, 241, 0) 70%);
+    bottom: 15%;
+    right: 20%;
+    animation-delay: -3s;
+}
+
+.splash-grid {
+    position: absolute;
+    inset: 0;
+    background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+    background-size: 50px 50px;
+    mask-image: radial-gradient(circle at center, black 30%, transparent 80%);
+    -webkit-mask-image: radial-gradient(circle at center, black 30%, transparent 80%);
+    opacity: 0.8;
+}
+
+/* Floating Ambient Sparkles */
+.splash-particles {
+    position: absolute;
+    inset: 0;
+}
+
+.sp-dot {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 0 10px #fff, 0 0 20px var(--accent);
+    animation: spFloat 4s infinite ease-in-out;
+}
+
+.sp-1 { top: 25%; left: 30%; animation-delay: 0s; width: 3px; height: 3px; }
+.sp-2 { top: 35%; right: 28%; animation-delay: 1.2s; width: 5px; height: 5px; }
+.sp-3 { bottom: 30%; left: 35%; animation-delay: 2.1s; width: 4px; height: 4px; }
+.sp-4 { bottom: 25%; right: 32%; animation-delay: 0.7s; width: 3px; height: 3px; }
+.sp-5 { top: 60%; left: 22%; animation-delay: 1.8s; width: 4px; height: 4px; }
+.sp-6 { top: 20%; right: 40%; animation-delay: 2.7s; width: 2px; height: 2px; }
+
+@keyframes spFloat {
+    0%, 100% { transform: translateY(0) scale(0.8); opacity: 0.3; }
+    50% { transform: translateY(-15px) scale(1.3); opacity: 1; }
+}
+
+@keyframes splashGlowPulse {
+    0% { transform: scale(0.9) translate(0, 0); opacity: 0.35; }
+    100% { transform: scale(1.15) translate(20px, 20px); opacity: 0.6; }
+}
+
+/* Main Splash Container */
+.splash-container {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 480px;
+    width: 90%;
+    padding: 30px 20px;
+    animation: splashAppear 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes splashAppear {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* 3D Holographic Orbit Ring & Core Badge */
+.splash-loader-wrapper {
+    position: relative;
+    width: 140px;
+    height: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 28px;
+    transform-style: preserve-3d;
+}
+
+.splash-orbit {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.splash-orbit-1 {
+    width: 130px;
+    height: 130px;
+    border: 2px dashed rgba(6, 182, 212, 0.5);
+    box-shadow: 0 0 15px rgba(6, 182, 212, 0.3);
+    animation: orbitRotate1 7s linear infinite;
+}
+
+.splash-orbit-2 {
+    width: 110px;
+    height: 110px;
+    border: 1.5px solid transparent;
+    border-top-color: var(--primary);
+    border-bottom-color: var(--secondary);
+    box-shadow: 0 0 20px rgba(99, 102, 241, 0.4);
+    animation: orbitRotate2 4s linear infinite;
+}
+
+.splash-orbit-3 {
+    width: 146px;
+    height: 146px;
+    border: 1px dotted rgba(255, 255, 255, 0.2);
+    animation: orbitRotate3 12s linear infinite reverse;
+}
+
+.splash-pulse-ring {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 2px solid var(--accent);
+    opacity: 0;
+    animation: splashPulseRing 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+}
+
+@keyframes orbitRotate1 {
+    0% { transform: rotateX(65deg) rotateY(15deg) rotateZ(0deg); }
+    100% { transform: rotateX(65deg) rotateY(15deg) rotateZ(360deg); }
+}
+
+@keyframes orbitRotate2 {
+    0% { transform: rotateX(45deg) rotateY(-35deg) rotateZ(360deg); }
+    100% { transform: rotateX(45deg) rotateY(-35deg) rotateZ(0deg); }
+}
+
+@keyframes orbitRotate3 {
+    0% { transform: rotateZ(0deg); }
+    100% { transform: rotateZ(360deg); }
+}
+
+@keyframes splashPulseRing {
+    0% { transform: scale(0.8); opacity: 0.8; }
+    80% { transform: scale(1.9); opacity: 0; }
+    100% { transform: scale(2); opacity: 0; }
+}
+
+.splash-core-badge {
+    position: relative;
+    width: 76px;
+    height: 76px;
+    border-radius: 20px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.03));
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 30px rgba(99, 102, 241, 0.4), inset 0 0 15px rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: coreLevitate 3s ease-in-out infinite alternate;
+}
+
+@keyframes coreLevitate {
+    0% { transform: translateY(-3px) scale(0.98); box-shadow: 0 0 25px rgba(99, 102, 241, 0.35); }
+    100% { transform: translateY(3px) scale(1.02); box-shadow: 0 0 40px rgba(6, 182, 212, 0.6); }
+}
+
+.splash-core-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.splash-tag {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    background: linear-gradient(135deg, #ffffff 10%, var(--accent) 50%, var(--primary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 20px rgba(6, 182, 212, 0.5);
+}
+
+/* Splash Brand & Pills */
+.splash-brand {
+    margin-bottom: 26px;
+}
+
+.splash-logo {
+    font-size: 2.2rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    color: #ffffff;
+    margin-bottom: 12px;
+}
+
+.splash-logo span {
+    color: var(--accent);
+    background: linear-gradient(135deg, var(--accent), var(--primary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.splash-pills {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.splash-pill {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    padding: 4px 12px;
+    border-radius: 50px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(8px);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: var(--transition);
+}
+
+.splash-pill i {
+    font-size: 0.7rem;
+    color: var(--accent);
+}
+
+/* Progress Track & Status */
+.splash-progress-container {
+    width: 100%;
+    max-width: 380px;
+    margin-bottom: 20px;
+}
+
+.splash-status-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.78rem;
+    font-family: var(--font-body);
+    font-weight: 600;
+    letter-spacing: 0.8px;
+    margin-bottom: 10px;
+}
+
+.splash-status-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.splash-status-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 8px var(--accent);
+    animation: statusPulse 1.2s infinite ease-in-out;
+}
+
+@keyframes statusPulse {
+    0%, 100% { transform: scale(0.8); opacity: 0.5; }
+    50% { transform: scale(1.3); opacity: 1; }
+}
+
+.splash-status-text {
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.splash-percent {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 0.5px;
+}
+
+.splash-progress-track {
+    width: 100%;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.07);
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+.splash-progress-bar {
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent) 0%, var(--primary) 50%, var(--secondary) 100%);
+    border-radius: 10px;
+    position: relative;
+    transition: width 0.15s ease-out;
+    box-shadow: 0 0 16px var(--primary-glow);
+}
+
+.splash-progress-glow {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 20px;
+    background: #ffffff;
+    box-shadow: 0 0 12px #fff, 0 0 20px var(--accent);
+    border-radius: 50%;
+    filter: blur(2px);
+    opacity: 0.8;
+}
+
+/* Skip Intro Button */
+.splash-skip-btn {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.78rem;
+    font-family: var(--font-body);
+    font-weight: 500;
+    padding: 6px 16px;
+    border-radius: 30px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.25s ease;
+    outline: none;
+}
+
+.splash-skip-btn:hover {
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.06);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.splash-skip-btn i {
+    font-size: 0.7rem;
+    transition: transform 0.2s ease;
+}
+
+.splash-skip-btn:hover i {
+    transform: translateX(2px);
+}
+
+/* Responsive adjustment */
+@media (max-width: 600px) {
+    .splash-logo {
+        font-size: 1.8rem;
+    }
+
+    .splash-loader-wrapper {
+        width: 120px;
+        height: 120px;
+        margin-bottom: 20px;
+    }
+
+    .splash-orbit-1 { width: 110px; height: 110px; }
+    .splash-orbit-2 { width: 95px; height: 95px; }
+    .splash-orbit-3 { width: 125px; height: 125px; }
+
+    .splash-core-badge {
+        width: 64px;
+        height: 64px;
+        border-radius: 16px;
+    }
+
+    .splash-tag {
+        font-size: 1.05rem;
+    }
+
+    .splash-pills {
+        gap: 6px;
+    }
+
+    .splash-pill {
+        font-size: 0.68rem;
+        padding: 3px 10px;
+    }
+}
+
