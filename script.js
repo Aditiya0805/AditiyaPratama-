@@ -42,6 +42,8 @@ const translations = {
         "projects.p3_title": "Desain Game Pemula (Krui Adventure)",
         "projects.p3_desc": "Perancangan konsep UI/UX, pohon skill, peta petualangan, dan visual aset game Krui Adventure menggunakan Figma.",
         "projects.p4_desc": "Aplikasi deteksi objek real-time berbasis Computer Vision untuk mendeteksi, mengklasifikasi, dan menghitung objek/orang secara dinamis menggunakan kecerdasan buatan.",
+        "projects.p5_title": "Explore Pesisir Barat - Portal Wisata & Surfing",
+        "projects.p5_desc": "Portal pariwisata modern untuk Kabupaten Pesisir Barat (Krui), menyajikan direktori spot surfing kelas dunia, pencarian tiket & pemandu, peta 3D interaktif, dan asisten pintar Tanya Pari AI.",
         "projects.btn_detail": "Lihat Detail",
         "achievements.title_prefix": "Prestasi &",
         "achievements.title_highlight": "Pencapaian",
@@ -66,7 +68,8 @@ const translations = {
         "footer.code": "Kode",
         "astronaut.quote1": "Halo! Mari jelajahi karya Aditiya! 🚀",
         "modal.tech_header": "Teknologi Digunakan:",
-        "modal.features_header": "Fitur Utama:"
+        "modal.features_header": "Fitur Utama:",
+        "modal.btn_demo": "Kunjungi Website Live"
     },
     en: {
         page_title: "Aditiya Pratama | Informatics Student | Universitas Teknokrat Indonesia",
@@ -110,6 +113,8 @@ const translations = {
         "projects.p3_title": "Beginner Game Design (Krui Adventure)",
         "projects.p3_desc": "UI/UX concept design, skill tree, adventure map, and visual game assets for Krui Adventure created using Figma.",
         "projects.p4_desc": "Real-time Computer Vision object detection app for dynamically detecting, classifying, and counting objects/people using artificial intelligence.",
+        "projects.p5_title": "Explore Pesisir Barat - Tourism & Surfing Hub",
+        "projects.p5_desc": "Integrated tourism & surf portal for West Pesisir Regency (Krui), featuring world-class surf spots, ticket & local guide booking, 3D interactive map, and Tanya Pari AI smart travel assistant.",
         "projects.btn_detail": "View Details",
         "achievements.title_prefix": "Awards &",
         "achievements.title_highlight": "Achievements",
@@ -134,7 +139,8 @@ const translations = {
         "footer.code": "Code",
         "astronaut.quote1": "Hi! Let's explore Aditiya's work! 🚀",
         "modal.tech_header": "Technologies Used:",
-        "modal.features_header": "Key Features:"
+        "modal.features_header": "Key Features:",
+        "modal.btn_demo": "Open Live Demo Website"
     }
 };
 
@@ -154,6 +160,35 @@ const astronautQuotes = {
 };
 
 const projectDetails = {
+    pesisir_barat: {
+        category: { id: "Web & Wisata", en: "Web & Tourism" },
+        title: "Explore Pesisir Barat - Portal Wisata & Surfing",
+        img: "pesisir_barat.png",
+        link: "pesisir-barat.html",
+        desc: {
+            id: "Explore Pesisir Barat adalah platform portal pariwisata modern untuk mempromosikan keindahan alam dan potensi selancar kelas dunia di Kabupaten Pesisir Barat (Krui), Lampung. Platform ini menyatukan sistem pencarian destinasi wisata & paket tur, informasi deburan ombak surfing internasional (WSL Krui Pro), eksotisme Pulau Pisang, kerajinan kain tenun Tapis khas Saibatin, serta terintegrasi dengan chatbot asisten wisata pintar 'Tanya Pari AI'.",
+            en: "Explore Pesisir Barat is a modern tourism portal platform promoting the natural beauty and world-class surfing potential of West Pesisir Regency (Krui), Lampung. It combines a destination and tour package search engine, international surf break guides (home of WSL Krui Pro), Banana Island ecotourism, authentic Saibatin Tapis weaving culture, and an integrated smart travel assistant 'Tanya Pari AI'."
+        },
+        tags: ["HTML5", "CSS3 / Glassmorphism", "JavaScript", "Pari AI Chatbot", "Interactive Map", "Booking Engine", "Responsive UI"],
+        features: {
+            id: [
+                "Hero banner interaktif bernuansa surfing pantai kelas dunia Krui",
+                "Form pencarian & booking terintegrasi (destinasi, tanggal kunjungan, & jumlah orang)",
+                "Widget cerdas 'Tanya Pari AI' untuk konsultasi spot surfing, penginapan, dan rute perjalanan",
+                "Katalog destinasi utama: Pantai Tanjung Setia, Pulau Pisang, Pantai Mandiri, & Labuhan Jukung",
+                "Sistem reservasi paket wisata & pemandu selancar lokal terpercaya",
+                "Desain modern berbasis glassmorphism, tipografi elegan, dan performa responsif"
+            ],
+            en: [
+                "Interactive ocean hero banner featuring Krui's world-class surf breaks",
+                "Integrated booking search filter (destination, travel dates, & guest count)",
+                "'Tanya Pari AI' intelligent travel assistant widget for surf advice, lodging, and transport",
+                "Curated destination guide: Tanjung Setia Beach, Banana Island, Mandiri Beach, & Labuhan Jukung",
+                "Tour package reservation and licensed local surf guide booking system",
+                "Modern glassmorphic interface, elegant typography, and high-performance responsive layout"
+            ]
+        }
+    },
     yohebemi: {
         category: { id: "Web & POS", en: "Web & POS" },
         title: "YOHEBEMI - Sistem Kasir ATK",
@@ -683,6 +718,22 @@ function initModals() {
             const featuresContainer = document.getElementById('modal-features');
             const featuresList = data.features[currentLang] || data.features.id;
             featuresContainer.innerHTML = featuresList.map(feat => `<li>${feat}</li>`).join('');
+
+            // Render Demo Link if available
+            const linkWrap = document.getElementById('modal-link-wrap');
+            const liveLink = document.getElementById('modal-live-link');
+            const linkText = document.getElementById('modal-link-text');
+            if (linkWrap && liveLink) {
+                if (data.link) {
+                    liveLink.href = data.link;
+                    if (linkText) {
+                        linkText.textContent = (translations[currentLang] && translations[currentLang]["modal.btn_demo"]) || "Buka Website Live";
+                    }
+                    linkWrap.style.display = 'block';
+                } else {
+                    linkWrap.style.display = 'none';
+                }
+            }
 
             projectModal.classList.add('active');
             projectModal.setAttribute('aria-hidden', 'false');

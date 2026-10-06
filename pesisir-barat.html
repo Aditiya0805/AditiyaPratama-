@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Pesisir Barat - Surga Surfing & Wisata Bahari Lampung</title>
+    <meta name="description" content="Jelajahi surga tersembunyi Lampung: deburan ombak surfing kelas dunia, eksotisme Pulau Pisang, air terjun asri, hingga kekayaan budaya tenun Tapis di Pesisir Barat (Krui).">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@500;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="pesisir-barat.css">
+</head>
+<body>
+
+    <!-- Back to Aditiya Portfolio Floating Pill -->
+    <a href="index.html" class="back-portfolio-pill" title="Kembali ke Portofolio Utama">
+        <i class="fas fa-arrow-left"></i>
+        <span>Portofolio Aditiya</span>
+    </a>
+
+    <!-- Navigation Header -->
+    <header class="pb-header" id="pb-header">
+        <div class="pb-nav-container">
+            <!-- Brand Logo -->
+            <a href="#beranda" class="pb-brand">
+                <div class="pb-brand-icon">
+                    <i class="fas fa-water"></i>
+                </div>
+                <span class="pb-brand-text">EXPLORE PESISIR BARAT</span>
+            </a>
+
+            <!-- Navigation Links -->
+            <nav class="pb-nav-menu" id="pb-nav-menu">
+                <a href="#beranda" class="pb-nav-link active">Beranda</a>
+                <a href="#destinasi" class="pb-nav-link">Destinasi</a>
+                <a href="#peta-3d" class="pb-nav-link">🌐 Peta 3D</a>
+                <a href="#paket-wisata" class="pb-nav-link">Paket Wisata</a>
+                <a href="#jasa-pemandu" class="pb-nav-link">Jasa Pemandu</a>
+                <a href="#galeri" class="pb-nav-link">Galeri</a>
+                <a href="#artikel" class="pb-nav-link">Artikel</a>
+                <a href="#tentang" class="pb-nav-link">Tentang Kami</a>
+            </nav>
+
+            <!-- Nav Actions -->
+            <div class="pb-nav-actions">
+                <button type="button" class="pb-btn-book open-booking-modal" id="nav-btn-book">
+                    <i class="far fa-calendar-alt"></i>
+                    <span>Pesan Sekarang</span>
+                </button>
+                <button type="button" class="pb-avatar-btn" id="btn-user-profile" aria-label="Profil Pengguna">
+                    <i class="far fa-user"></i>
+                </button>
+                <button type="button" class="pb-mobile-toggle" id="mobile-toggle" aria-label="Menu navigasi">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="pb-hero" id="beranda">
+        <!-- Ocean Surfing Video/Image Background Overlay -->
+        <div class="pb-hero-bg">
+            <div class="pb-hero-overlay"></div>
+        </div>
+
+        <div class="pb-hero-content">
+            <!-- Pill Badge -->
+            <div class="pb-hero-badge">
+                <span class="pb-badge-dot"></span>
+                <span>Destinasi Surfing & Pantai Kelas Dunia</span>
+            </div>
+
+            <!-- Main Headline -->
+            <h1 class="pb-hero-title">
+                Temukan Keindahan <br>
+                <span class="pb-title-highlight">Pesisir Barat</span>
+            </h1>
+
+            <!-- Subtitle Description -->
+            <p class="pb-hero-desc">
+                Jelajahi surga tersembunyi Lampung: deburan ombak surfing kelas dunia, eksotisme Pulau Pisang, air terjun asri, hingga kekayaan budaya tenun Tapis.
+            </p>
+
+            <!-- Action Buttons -->
+            <div class="pb-hero-cta">
+                <a href="#destinasi" class="pb-btn pb-btn-primary">
+                    <i class="fas fa-compass"></i>
+                    <span>Jelajahi Destinasi</span>
+                </a>
+                <button type="button" class="pb-btn pb-btn-glass open-booking-modal">
+                    <i class="fas fa-ticket-alt"></i>
+                    <span>Pesan Tiket & Pemandu</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Floating Search & Booking Bar (Exact Match from Screenshot) -->
+        <div class="pb-search-wrapper">
+            <form class="pb-search-card" id="search-booking-form">
+                <!-- Field 1: Mau Menjelajah Apa -->
+                <div class="pb-search-col">
+                    <div class="pb-col-header">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>MAU MENJELAJAH APA?</span>
+                    </div>
+                    <div class="pb-select-wrap">
+                        <select id="search-destination" aria-label="Pilih Destinasi atau Paket">
+                            <option value="all">Pilih Destinasi / Paket</option>
+                            <option value="tanjung-setia">Pantai Tanjung Setia (Surfing Point)</option>
+                            <option value="pulau-pisang">Pulau Pisang (Snorkeling & Lumba-Lumba)</option>
+                            <option value="pantai-mandiri">Pantai Mandiri (Sunset & Beach Break)</option>
+                            <option value="labuhan-jukung">Pantai Labuhan Jukung (Keluarga & Sunset)</option>
+                            <option value="way-nipah">Air Terjun Way Nipah (Asri & Sejuk)</option>
+                            <option value="paket-surfing">Paket Surfing Krui Pro (3H2M)</option>
+                            <option value="paket-pisang">Paket Eksplor Pulau Pisang (1 Hari)</option>
+                        </select>
+                        <i class="fas fa-chevron-down pb-select-arrow"></i>
+                    </div>
+                </div>
+
+                <!-- Field 2: Tanggal Kunjungan -->
+                <div class="pb-search-col">
+                    <div class="pb-col-header">
+                        <i class="far fa-calendar-alt"></i>
+                        <span>TANGGAL KUNJUNGAN</span>
+                    </div>
+                    <div class="pb-date-wrap">
+                        <input type="date" id="search-date" class="pb-date-input" value="2026-10-15">
+                        <i class="far fa-calendar pb-date-icon"></i>
+                    </div>
+                </div>
+
+                <!-- Field 3: Jumlah Orang -->
+                <div class="pb-search-col">
+                    <div class="pb-col-header">
+                        <i class="fas fa-user-friends"></i>
+                        <span>JUMLAH ORANG</span>
+                    </div>
+                    <div class="pb-select-wrap">
+                        <select id="search-people" aria-label="Pilih Jumlah Orang">
+                            <option value="1">1 Orang</option>
+                            <option value="2">2 Orang</option>
+                            <option value="3-5">3 - 5 Orang</option>
+                            <option value="6+">Rombongan (6+ Orang)</option>
+                        </select>
+                        <i class="fas fa-chevron-down pb-select-arrow"></i>
+                    </div>
+                </div>
+
+                <!-- Field 4: Search Button -->
+                <div class="pb-search-col pb-col-btn">
+                    <button type="submit" class="pb-btn-search" id="btn-submit-search">
+                        <i class="fas fa-search"></i>
+                        <span>Cari</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Quick Stats Bar -->
+    <section class="pb-stats-section">
+        <div class="pb-container">
+            <div class="pb-stats-grid">
+                <div class="pb-stat-item">
+                    <span class="pb-stat-num">210+</span>
+                    <span class="pb-stat-lbl">Km Garis Pantai Samudra</span>
+                </div>
+                <div class="pb-stat-item">
+                    <span class="pb-stat-num">15+</span>
+                    <span class="pb-stat-lbl">Spot Surfing Kelas Dunia (WSL)</span>
+                </div>
+                <div class="pb-stat-item">
+                    <span class="pb-stat-num">4.9/5</span>
+                    <span class="pb-stat-lbl">Kepuasan Wisatawan Global</span>
+                </div>
+                <div class="pb-stat-item">
+                    <span class="pb-stat-num">100%</span>
+                    <span class="pb-stat-lbl">Keramahan Budaya Saibatin</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Destinasi Unggulan Section -->
+    <section class="pb-section" id="destinasi">
+        <div class="pb-container">
+            <div class="pb-section-header">
+                <span class="pb-badge-label">DESTINASI UNGGULAN</span>
+                <h2>Jelajahi Pesona Surga Wisata & Surfing</h2>
+                <p>Dari deburan ombak berkelas internasional hingga ketenangan pulau perawan di pesisir barat Lampung.</p>
+            </div>
+
+            <!-- Category Filter Tabs -->
+            <div class="pb-dest-filters">
+                <button type="button" class="dest-filter-btn active" data-filter="all">Semua</button>
+                <button type="button" class="dest-filter-btn" data-filter="surfing">Spot Surfing</button>
+                <button type="button" class="dest-filter-btn" data-filter="pantai">Pantai & Pulau</button>
+                <button type="button" class="dest-filter-btn" data-filter="alam">Alam & Budaya</button>
+            </div>
+
+            <div class="pb-cards-grid" id="destinations-grid">
+                <!-- Card 1: Tanjung Setia -->
+                <article class="pb-card" data-category="surfing" data-dest="tanjung-setia">
+                    <div class="pb-card-media">
+                        <img src="https://images.unsplash.com/photo-1502680390469-be75c86b636f?auto=format&fit=crop&w=800&q=80" alt="Pantai Tanjung Setia Krui">
+                        <span class="pb-card-tag tag-surf"><i class="fas fa-water"></i> WSL Krui Pro Spot</span>
+                        <div class="pb-card-rating"><i class="fas fa-star"></i> 4.9 (520+ Review)</div>
+                    </div>
+                    <div class="pb-card-body">
+                        <div class="pb-card-meta">
+                            <span><i class="fas fa-map-marker-alt"></i> Pesisir Selatan, Krui</span>
+                            <span class="pb-wave-level"><i class="fas fa-tachometer-alt"></i> Ombak 2 - 6 Meter</span>
+                        </div>
+                        <h3>Pantai Tanjung Setia (Karang Nyimbor)</h3>
+                        <p>Lokasi kejuaraan dunia World Surf League (WSL). Memiliki gelombang kidal (left-hander) panjang dan barrel sempurna yang memikat peselancar dari seluruh penjuru bumi.</p>
+                        <div class="pb-card-footer">
+                            <div class="pb-price">
+                                <span class="pb-price-from">Mulai dari</span>
+                                <span class="pb-price-val">Rp 25.000 <small>/ Tiket</small></span>
+                            </div>
+                            <button type="button" class="pb-card-btn open-booking-modal" data-target-name="Pantai Tanjung Setia">
+                                Pesan Tiket <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 2: Pulau Pisang -->
+                <article class="pb-card" data-category="pantai" data-dest="pulau-pisang">
+                    <div class="pb-card-media">
+                        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80" alt="Eksotisme Pulau Pisang Lampung">
+                        <span class="pb-card-tag tag-island"><i class="fas fa-umbrella-beach"></i> Hidden Gem</span>
+                        <div class="pb-card-rating"><i class="fas fa-star"></i> 5.0 (380+ Review)</div>
+                    </div>
+                    <div class="pb-card-body">
+                        <div class="pb-card-meta">
+                            <span><i class="fas fa-map-marker-alt"></i> Kecamatan Pulau Pisang</span>
+                            <span class="pb-wave-level"><i class="fas fa-ship"></i> 30 Menit Penyeberangan</span>
+                        </div>
+                        <h3>Pulau Pisang (The Emerald of Sumatra)</h3>
+                        <p>Pulau terisolir dengan pasir putih selembut tepung, perairan toska jernih, kawanan lumba-lumba bebas di laut lepas, serta arsitektur bersejarah mercusuar era kolonial.</p>
+                        <div class="pb-card-footer">
+                            <div class="pb-price">
+                                <span class="pb-price-from">Paket Boat PP</span>
+                                <span class="pb-price-val">Rp 50.000 <small>/ Orang</small></span>
+                            </div>
+                            <button type="button" class="pb-card-btn open-booking-modal" data-target-name="Pulau Pisang">
+                                Pesan Tiket <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 3: Pantai Mandiri -->
+                <article class="pb-card" data-category="surfing pantai" data-dest="pantai-mandiri">
+                    <div class="pb-card-media">
+                        <img src="https://images.unsplash.com/photo-1455729552865-3658a5d39692?auto=format&fit=crop&w=800&q=80" alt="Pantai Mandiri Krui">
+                        <span class="pb-card-tag tag-sunset"><i class="fas fa-sun"></i> Sunset & Beach Break</span>
+                        <div class="pb-card-rating"><i class="fas fa-star"></i> 4.8 (310+ Review)</div>
+                    </div>
+                    <div class="pb-card-body">
+                        <div class="pb-card-meta">
+                            <span><i class="fas fa-map-marker-alt"></i> Ngambur, Pesisir Barat</span>
+                            <span class="pb-wave-level"><i class="fas fa-water"></i> Ombak Pasir (Beach Break)</span>
+                        </div>
+                        <h3>Pantai Mandiri (Black Pearl Sand)</h3>
+                        <p>Pantai berpasir hitam berkilau yang membentang bermil-mil tanpa karang tajam, tempat terbaik menikmati matahari terbenam spektakuler dan latihan surfing gelombang cepat.</p>
+                        <div class="pb-card-footer">
+                            <div class="pb-price">
+                                <span class="pb-price-from">Retribusi</span>
+                                <span class="pb-price-val">Rp 10.000 <small>/ Masuk</small></span>
+                            </div>
+                            <button type="button" class="pb-card-btn open-booking-modal" data-target-name="Pantai Mandiri">
+                                Pesan Tiket <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 4: Pantai Labuhan Jukung -->
+                <article class="pb-card" data-category="pantai" data-dest="labuhan-jukung">
+                    <div class="pb-card-media">
+                        <img src="https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?auto=format&fit=crop&w=800&q=80" alt="Pantai Labuhan Jukung Krui">
+                        <span class="pb-card-tag tag-family"><i class="fas fa-utensils"></i> Pusat Rekreasi & Kuliner</span>
+                        <div class="pb-card-rating"><i class="fas fa-star"></i> 4.7 (650+ Review)</div>
+                    </div>
+                    <div class="pb-card-body">
+                        <div class="pb-card-meta">
+                            <span><i class="fas fa-map-marker-alt"></i> Ibukota Krui, Pesisir Tengah</span>
+                            <span class="pb-wave-level"><i class="fas fa-fish"></i> Sentra Olahan Ikan Blue Marlin</span>
+                        </div>
+                        <h3>Pantai Labuhan Jukung Krui</h3>
+                        <p>Jantung pariwisata Krui yang ramah keluarga dengan promenade pantai modern, deretan kafe kelapa muda, dan warung olahan khas Gulai Taboh & Ikan Tuhuk segar.</p>
+                        <div class="pb-card-footer">
+                            <div class="pb-price">
+                                <span class="pb-price-from">Biaya Parkir</span>
+                                <span class="pb-price-val">Rp 5.000 <small>/ Kendaraan</small></span>
+                            </div>
+                            <button type="button" class="pb-card-btn open-booking-modal" data-target-name="Pantai Labuhan Jukung">
+                                Pesan Tiket <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 5: Air Terjun Way Nipah -->
+                <article class="pb-card" data-category="alam" data-dest="way-nipah">
+                    <div class="pb-card-media">
+                        <img src="https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&w=800&q=80" alt="Air Terjun Way Nipah">
+                        <span class="pb-card-tag tag-nature"><i class="fas fa-tree"></i> Ekowisata Air Terjun</span>
+                        <div class="pb-card-rating"><i class="fas fa-star"></i> 4.8 (190+ Review)</div>
+                    </div>
+                    <div class="pb-card-body">
+                        <div class="pb-card-meta">
+                            <span><i class="fas fa-map-marker-alt"></i> Biha, Pesisir Selatan</span>
+                            <span class="pb-wave-level"><i class="fas fa-tint"></i> Ketinggian 30 Meter</span>
+                        </div>
+                        <h3>Air Terjun Way Nipah (Curup Bertih)</h3>
+                        <p>Kesegaran air pegunungan alami di tengah rimbunnya hutan lindung Bukit Barisan Selatan. Kolam alami berair toska sangat cocok untuk berendam setelah lelah berselancar.</p>
+                        <div class="pb-card-footer">
+                            <div class="pb-price">
+                                <span class="pb-price-from">Jasa Guide Lokal</span>
+                                <span class="pb-price-val">Rp 35.000 <small>/ Orang</small></span>
+                            </div>
+                            <button type="button" class="pb-card-btn open-booking-modal" data-target-name="Air Terjun Way Nipah">
+                                Pesan Tiket <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 6: Tenun Tapis Saibatin -->
+                <article class="pb-card" data-category="alam" data-dest="tapis-krui">
+                    <div class="pb-card-media">
+                        <img src="https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?auto=format&fit=crop&w=800&q=80" alt="Tenun Tapis Krui">
+                        <span class="pb-card-tag tag-culture"><i class="fas fa-gem"></i> Warisan Adat Saibatin</span>
+                        <div class="pb-card-rating"><i class="fas fa-star"></i> 4.9 (240+ Review)</div>
+                    </div>
+                    <div class="pb-card-body">
+                        <div class="pb-card-meta">
+                            <span><i class="fas fa-map-marker-alt"></i> Sentra Kerajinan Pesisir Barat</span>
+                            <span class="pb-wave-level"><i class="fas fa-palette"></i> Benang Emas Asli</span>
+                        </div>
+                        <h3>Sentra Tenun Tapis Pesisir Barat</h3>
+                        <p>Kain tenun sakral masyarakat adat Lampung Saibatin yang disulam helai demi helai menggunakan benang emas bermotif flora samudra dan flora khas pesisir.</p>
+                        <div class="pb-card-footer">
+                            <div class="pb-price">
+                                <span class="pb-price-from">Workshop Budaya</span>
+                                <span class="pb-price-val">Gratis <small>/ Kunjungan</small></span>
+                            </div>
+                            <button type="button" class="pb-card-btn open-booking-modal" data-target-name="Workshop Tenun Tapis">
+                                Booking Jadwal <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive 3D Map Section -->
+    <section class="pb-section pb-map-section" id="peta-3d">
+        <div class="pb-container">
+            <div class="pb-section-header">
+                <span class="pb-badge-label">PETA VIRTUAL 3D</span>
+                <h2>Peta Eksplorasi Interaktif Pesisir Barat</h2>
+                <p>Klik titik koordinat untuk melihat gambaran kondisi ombak, rute jalan, dan fasilitas di sekitar lokasi.</p>
+            </div>
+
+            <div class="pb-map-card">
+                <div class="pb-map-canvas-container">
+                    <!-- Stylized 3D Topographic SVG Map of Krui Coastline -->
+                    <div class="pb-map-visual">
+                        <div class="pb-ocean-waves-anim"></div>
+                        <!-- Interactive Pins -->
+                        <div class="pb-map-pin pin-1 active" data-pin="tanjung-setia" style="top: 65%; left: 42%;">
+                            <div class="pin-pulse"></div>
+                            <div class="pin-icon"><i class="fas fa-water"></i></div>
+                            <span class="pin-tooltip">Tanjung Setia (WSL Spot)</span>
+                        </div>
+
+                        <div class="pb-map-pin pin-2" data-pin="pulau-pisang" style="top: 28%; left: 24%;">
+                            <div class="pin-pulse"></div>
+                            <div class="pin-icon"><i class="fas fa-umbrella-beach"></i></div>
+                            <span class="pin-tooltip">Pulau Pisang (Hidden Gem)</span>
+                        </div>
+
+                        <div class="pb-map-pin pin-3" data-pin="pantai-mandiri" style="top: 78%; left: 55%;">
+                            <div class="pin-pulse"></div>
+                            <div class="pin-icon"><i class="fas fa-sun"></i></div>
+                            <span class="pin-tooltip">Pantai Mandiri (Sunset Beach)</span>
+                        </div>
+
+                        <div class="pb-map-pin pin-4" data-pin="labuhan-jukung" style="top: 45%; left: 35%;">
+                            <div class="pin-pulse"></div>
+                            <div class="pin-icon"><i class="fas fa-city"></i></div>
+                            <span class="pin-tooltip">Labuhan Jukung (Krui Town)</span>
+                        </div>
+
+                        <div class="pb-map-pin pin-5" data-pin="way-nipah" style="top: 72%; left: 62%;">
+                            <div class="pin-pulse"></div>
+                            <div class="pin-icon"><i class="fas fa-mountain"></i></div>
+                            <span class="pin-tooltip">Air Terjun Way Nipah</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Map Info Sidebar -->
+                <div class="pb-map-details" id="map-detail-panel">
+                    <span class="pb-badge-sm">Detail Lokasi Terpilih</span>
+                    <h3 id="map-spot-title">Pantai Tanjung Setia (Krui Pro)</h3>
+                    <p id="map-spot-desc">Spot surfing paling terkenal di Sumatera dengan gulungan ombak Karang Nyimbor setinggi 3-6 meter. Menjadi arena kompetisi surfing tingkat dunia WSL tiap tahunnya.</p>
+                    
+                    <div class="pb-spot-stats">
+                        <div class="spot-stat">
+                            <span class="stat-title">Karakteristik Ombak</span>
+                            <span class="stat-value" id="map-spot-wave">Left-hand Reef Break</span>
+                        </div>
+                        <div class="spot-stat">
+                            <span class="stat-title">Tingkat Kesulitan</span>
+                            <span class="stat-value text-accent" id="map-spot-diff">Intermediate to Pro</span>
+                        </div>
+                        <div class="spot-stat">
+                            <span class="stat-title">Waktu Terbaik</span>
+                            <span class="stat-value" id="map-spot-season">April - Oktober (Dry Season)</span>
+                        </div>
+                        <div class="spot-stat">
+                            <span class="stat-title">Akses Jalan</span>
+                            <span class="stat-value">Jalan Lintas Barat Sumatera (Mulus)</span>
+                        </div>
+                    </div>
+
+                    <button type="button" class="pb-btn pb-btn-primary w-100 open-booking-modal" id="btn-map-book">
+                        <i class="fas fa-route"></i> Reservasi Panduan ke Spot Ini
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Paket Wisata & Jasa Pemandu -->
+    <section class="pb-section pb-packages" id="paket-wisata">
+        <div class="pb-container">
+            <div class="pb-section-header">
+                <span class="pb-badge-label">PAKET WISATA PILIHAN</span>
+                <h2>Nikmati Liburan Tanpa Repot Bersama Pemandu Berlisensi</h2>
+                <p>Pengalaman petualangan lengkap yang dikurasi oleh asosiasi pemandu selancar dan pegiat wisata lokal Pesisir Barat.</p>
+            </div>
+
+            <div class="pb-packages-grid">
+                <!-- Package 1 -->
+                <div class="pb-package-card">
+                    <div class="pkg-header">
+                        <span class="pkg-badge">Best Seller</span>
+                        <h3>Krui Surf Explorer Camp (3H2M)</h3>
+                        <p class="pkg-sub">Khusus peselancar pemula hingga menengah</p>
+                        <div class="pkg-pricing">
+                            <span class="pkg-currency">Rp</span>
+                            <span class="pkg-amount">1.850.000</span>
+                            <span class="pkg-period">/ orang</span>
+                        </div>
+                    </div>
+                    <ul class="pkg-features">
+                        <li><i class="fas fa-check-circle"></i> Akomodasi Surf Camp tepi pantai Tanjung Setia 2 malam</li>
+                        <li><i class="fas fa-check-circle"></i> Sesi coaching & video review bersama Pro Surf Guide</li>
+                        <li><i class="fas fa-check-circle"></i> Sewa papan selancar & fin berkualitas sesuai ukuran</li>
+                        <li><i class="fas fa-check-circle"></i> Transportasi antar-jemput ke 3 spot ombak rahasia</li>
+                        <li><i class="fas fa-check-circle"></i> Sarapan sehat, makan malam BBQ seafood segar</li>
+                    </ul>
+                    <button type="button" class="pb-btn pb-btn-outline open-booking-modal" data-target-name="Krui Surf Camp 3H2M">
+                        Pilih Paket Ini
+                    </button>
+                </div>
+
+                <!-- Package 2 (Featured) -->
+                <div class="pb-package-card featured">
+                    <div class="pkg-ribbon">POPULER</div>
+                    <div class="pkg-header">
+                        <span class="pkg-badge">Petualangan Lengkap</span>
+                        <h3>Pulau Pisang Paradise Hopping (2H1M)</h3>
+                        <p class="pkg-sub">Wisata bahari, lumba-lumba, dan relaksasi pulau</p>
+                        <div class="pkg-pricing">
+                            <span class="pkg-currency">Rp</span>
+                            <span class="pkg-amount">1.350.000</span>
+                            <span class="pkg-period">/ orang</span>
+                        </div>
+                    </div>
+                    <ul class="pkg-features">
+                        <li><i class="fas fa-check-circle"></i> Kapal charter khusus PP Dermaga Tembakak - Pulau Pisang</li>
+                        <li><i class="fas fa-check-circle"></i> Homestay tradisional rumah panggung khas Saibatin</li>
+                        <li><i class="fas fa-check-circle"></i> Morning safari mengamati lumba-lumba liar di laut lepas</li>
+                        <li><i class="fas fa-check-circle"></i> Perlengkapan snorkeling lengkap & dokumentasi underwater GoPro</li>
+                        <li><i class="fas fa-check-circle"></i> Keliling pulau dengan sepeda ontel antik & kuliner pulau</li>
+                    </ul>
+                    <button type="button" class="pb-btn pb-btn-primary open-booking-modal" data-target-name="Pulau Pisang Hopping 2H1M">
+                        Pilih Paket Ini
+                    </button>
+                </div>
+
+                <!-- Package 3 -->
+                <div class="pb-package-card" id="jasa-pemandu">
+                    <div class="pkg-header">
+                        <span class="pkg-badge">Budaya & Alam</span>
+                        <h3>Krui Heritage & Nature Discovery</h3>
+                        <p class="pkg-sub">Eksplor air terjun asri & sentra kerajinan Tapis</p>
+                        <div class="pkg-pricing">
+                            <span class="pkg-currency">Rp</span>
+                            <span class="pkg-amount">650.000</span>
+                            <span class="pkg-period">/ orang</span>
+                        </div>
+                    </div>
+                    <ul class="pkg-features">
+                        <li><i class="fas fa-check-circle"></i> Pemandu wisata lokal bersertifikat HPI</li>
+                        <li><i class="fas fa-check-circle"></i> Trekking rimbun ke Air Terjun Way Nipah & Way Bertih</li>
+                        <li><i class="fas fa-check-circle"></i> Belajar menyulam kain Tapis di sentra perajin Saibatin</li>
+                        <li><i class="fas fa-check-circle"></i> Makan siang kuliner otentik Gulai Taboh ikan tuhuk</li>
+                        <li><i class="fas fa-check-circle"></i> Tiket masuk seluruh objek wisata & mobil private AC</li>
+                    </ul>
+                    <button type="button" class="pb-btn pb-btn-outline open-booking-modal" data-target-name="Krui Heritage Tour">
+                        Pilih Paket Ini
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating Tanya Pari AI Travel Concierge Widget (Bottom-Right) -->
+    <div class="pb-pari-ai-wrapper" id="pari-ai-wrapper">
+        <!-- Floating Trigger Button -->
+        <button type="button" class="pb-pari-ai-btn" id="pari-ai-toggle" aria-label="Buka Asisten Wisata Pari AI">
+            <div class="pari-avatar">
+                <i class="fas fa-robot"></i>
+                <span class="pari-pulse-dot"></span>
+            </div>
+            <div class="pari-label">
+                <span class="pari-title">Tanya Pari AI</span>
+                <span class="pari-sub">Asisten Wisata</span>
+            </div>
+        </button>
+
+        <!-- AI Chat Drawer Box -->
+        <div class="pb-pari-chatbox" id="pari-chatbox" aria-hidden="true">
+            <div class="pari-chat-header">
+                <div class="pari-header-info">
+                    <div class="pari-avatar-sm">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div>
+                        <h4>Pari AI • Asisten Wisata Krui</h4>
+                        <span class="pari-status"><span class="status-dot"></span> Online • Rekomendasi Real-Time</span>
+                    </div>
+                </div>
+                <button type="button" class="pari-close-btn" id="pari-close-btn" aria-label="Tutup Chat">&times;</button>
+            </div>
+
+            <!-- Chat Messages Log -->
+            <div class="pari-chat-body" id="pari-messages">
+                <div class="chat-msg bot">
+                    <div class="chat-avatar"><i class="fas fa-robot"></i></div>
+                    <div class="chat-bubble">
+                        Tabik Pun! 🙏 Halo! Saya <strong>Pari AI</strong>, pemandu cerdas wisata Kabupaten Pesisir Barat. Mau tanya apa hari ini seputar spot surfing, rute jalan ke Krui, Pulau Pisang, atau rekomendasi kuliner?
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Suggestion Chips -->
+            <div class="pari-chips" id="pari-chips">
+                <button type="button" class="pari-chip" data-prompt="Rekomendasi spot surfing untuk pemula di Krui?">🏄 Spot Pemula</button>
+                <button type="button" class="pari-chip" data-prompt="Bagaimana cara menuju ke Pulau Pisang dari Krui?">🏝️ Rute Pulau Pisang</button>
+                <button type="button" class="pari-chip" data-prompt="Kapan musim ombak terbaik di Pesisir Barat?">🌊 Musim Ombak</button>
+                <button type="button" class="pari-chip" data-prompt="Apa makanan khas paling enak di Krui?">🍲 Kuliner Khas</button>
+            </div>
+
+            <!-- Input Form -->
+            <form class="pari-chat-footer" id="pari-form">
+                <input type="text" id="pari-input" placeholder="Tanyakan seputar Krui / Pesisir Barat..." autocomplete="off">
+                <button type="submit" id="pari-send-btn" aria-label="Kirim Pesan">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Booking Modal -->
+    <div class="pb-modal-overlay" id="booking-modal" aria-hidden="true">
+        <div class="pb-modal-card">
+            <button type="button" class="pb-modal-close" id="close-booking-modal">&times;</button>
+            <div class="pb-modal-head">
+                <span class="pb-badge-sm">Reservasi Mudah & Cepat</span>
+                <h3>Pesan Tiket & Pemandu Wisata</h3>
+                <p>Isi formulir di bawah ini, tim kami akan segera menghubungi Anda melalui WhatsApp untuk konfirmasi instan.</p>
+            </div>
+            <form class="pb-modal-form" id="booking-form-submit">
+                <div class="form-group">
+                    <label for="book-name">Nama Lengkap</label>
+                    <input type="text" id="book-name" required placeholder="Contoh: Budi Santoso">
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="book-phone">Nomor WhatsApp</label>
+                        <input type="tel" id="book-phone" required placeholder="Contoh: 0812-3456-7890">
+                    </div>
+                    <div class="form-group">
+                        <label for="book-email">Email</label>
+                        <input type="email" id="book-email" required placeholder="nama@email.com">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="book-dest">Destinasi / Paket</label>
+                        <select id="book-dest" required>
+                            <option value="Pantai Tanjung Setia (Surfing)">Pantai Tanjung Setia (Surfing Point)</option>
+                            <option value="Pulau Pisang Tour">Pulau Pisang (Hopping & Dolphins)</option>
+                            <option value="Pantai Mandiri Sunset">Pantai Mandiri (Sunset Beach Break)</option>
+                            <option value="Pantai Labuhan Jukung">Pantai Labuhan Jukung Krui</option>
+                            <option value="Air Terjun Way Nipah">Air Terjun Way Nipah</option>
+                            <option value="Krui Surf Camp 3H2M">Krui Surf Explorer Camp (3H2M)</option>
+                            <option value="Pulau Pisang Paradise (2H1M)">Pulau Pisang Paradise (2H1M)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="book-date">Tanggal Kunjungan</label>
+                        <input type="date" id="book-date" required value="2026-10-15">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="book-guests">Jumlah Peserta</label>
+                    <input type="number" id="book-guests" min="1" max="50" value="2">
+                </div>
+                <div class="form-group">
+                    <label for="book-notes">Catatan Tambahan (Opsional)</label>
+                    <textarea id="book-notes" rows="2" placeholder="Contoh: Butuh sewa 2 papan surfing dan instruktur pemula."></textarea>
+                </div>
+                <button type="submit" class="pb-btn pb-btn-primary w-100">
+                    <i class="fas fa-check-circle"></i> Konfirmasi Pemesanan Sekarang
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Booking Success Toast Notification -->
+    <div class="pb-toast" id="pb-toast">
+        <i class="fas fa-check-circle"></i>
+        <span id="toast-text">Pencarian berhasil diperbarui!</span>
+    </div>
+
+    <!-- Footer -->
+    <footer class="pb-footer" id="tentang">
+        <div class="pb-container">
+            <div class="pb-footer-grid">
+                <div class="pb-footer-brand">
+                    <div class="pb-brand">
+                        <div class="pb-brand-icon"><i class="fas fa-water"></i></div>
+                        <span class="pb-brand-text">EXPLORE PESISIR BARAT</span>
+                    </div>
+                    <p>Portal resmi promosi pariwisata, kejuaraan surfing internasional, serta pelestarian budaya khas Sai Batin di Kabupaten Pesisir Barat (Krui), Lampung.</p>
+                    <div class="pb-footer-socials">
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                <div class="pb-footer-col">
+                    <h4>Navigasi Cepat</h4>
+                    <ul>
+                        <li><a href="#beranda">Beranda</a></li>
+                        <li><a href="#destinasi">Destinasi Pantai</a></li>
+                        <li><a href="#peta-3d">Peta Interaktif 3D</a></li>
+                        <li><a href="#paket-wisata">Paket Surfing & Tour</a></li>
+                        <li><a href="#jasa-pemandu">Pemandu Lokal</a></li>
+                    </ul>
+                </div>
+                <div class="pb-footer-col">
+                    <h4>Spot Surfing Unggulan</h4>
+                    <ul>
+                        <li><a href="#destinasi">Tanjung Setia (WSL Point)</a></li>
+                        <li><a href="#destinasi">Mandiri Beach Break</a></li>
+                        <li><a href="#destinasi">Jenny's Right & The Peak</a></li>
+                        <li><a href="#destinasi">Banana Island Lefts</a></li>
+                        <li><a href="#destinasi">Ujung Bocur Wave</a></li>
+                    </ul>
+                </div>
+                <div class="pb-footer-col">
+                    <h4>Kontak Informasi</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> Krui, Kabupaten Pesisir Barat, Lampung, Indonesia</p>
+                    <p><i class="fas fa-envelope"></i> info@pesisirbarat.go.id</p>
+                    <p><i class="fas fa-phone-alt"></i> +62 821-7788-9900</p>
+                </div>
+            </div>
+
+            <div class="pb-footer-bottom">
+                <p>&copy; 2026 Explore Pesisir Barat. Didesain dan dikembangkan sebagai showcase proyek oleh <strong><a href="index.html" style="color: #00e5ff; text-decoration: underline;">Aditiya Pratama</a></strong>.</p>
+                <a href="index.html" class="pb-back-home"><i class="fas fa-arrow-left"></i> Kembali ke Portfolio Aditiya</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="pesisir-barat.js"></script>
+</body>
+</html>
