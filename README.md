@@ -1,2 +1,2 @@
 # MY-FIRST-WEB
-Saya sat ini adalah programer pemula
+Saya saat ini adalah programer pemula
