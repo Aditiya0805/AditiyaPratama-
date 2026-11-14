@@ -5,6 +5,8 @@ import gameDesignImg from '../assets/game_design.png'
 import cyberVisionImg from '../assets/cyber_vision.jpg'
 import sertifikatUnnesImg from '../assets/sertifikat_unnes.png'
 import juara3AiImg from '../assets/juara_3_ai.jpg'
+import sertifikatInnovation4ForceImg from '../assets/sertifikat_innovation_4force.jpg'
+import sertifikatPemateriAiImg from '../assets/sertifikat_pemateri_ai.jpg'
 
 export const translations = {
   id: {
@@ -63,6 +65,14 @@ export const translations = {
     "achievements.a2_title": "Juara 3 Kecerdasan Buatan (AI)",
     "achievements.a2_desc": "Meraih peringkat Juara 3 dalam bidang Kecerdasan Buatan pada ajang Innovation Expo Universitas Teknokrat Indonesia yang bertema \"Sustainable, Impactful, Smart Lampung\".",
     "achievements.a2_badge": "Juara 3",
+    "achievements.a3_date": "15 Oktober 2026",
+    "achievements.a3_title": "Juara 3 UI/UX Design International Innovation 4Force",
+    "achievements.a3_desc": "Meraih peringkat Juara 3 (3rd Winner) tingkat Internasional kategori UI/UX Design pada ajang International Innovation 4Force 2026 yang diikuti delegasi mahasiswa dari Indonesia, Kamboja, Vietnam, Thailand, dan Malaysia di Politeknik Negeri Lampung.",
+    "achievements.a3_badge": "Juara 3 Internasional",
+    "achievements.a4_date": "30 Oktober 2026",
+    "achievements.a4_title": "Pemateri: Pemanfaatan AI dalam Desain UI/UX",
+    "achievements.a4_desc": "Dipercaya sebagai narasumber/pemateri membawakan topik \"Pemanfaatan Artificial Intelligence dalam Desain UI/UX\" pada kegiatan HIMA Goes to School yang diselenggarakan oleh Himpunan Mahasiswa Informatika di SMK Negeri 2 Bandar Lampung.",
+    "achievements.a4_badge": "Pemateri Workshop",
     "contact.title_prefix": "Hubungi",
     "contact.title_highlight": "Saya",
     "contact.subtitle": "Mari Berkolaborasi!",
@@ -135,6 +145,14 @@ export const translations = {
     "achievements.a2_title": "3rd Winner Artificial Intelligence (AI)",
     "achievements.a2_desc": "Secured 3rd Place in Artificial Intelligence category at the Innovation Expo, Universitas Teknokrat Indonesia, themed 'Sustainable, Impactful, Smart Lampung'.",
     "achievements.a2_badge": "3rd Winner",
+    "achievements.a3_date": "October 15, 2026",
+    "achievements.a3_title": "3rd Winner UI/UX Design International Innovation 4Force",
+    "achievements.a3_desc": "Awarded 3rd Winner in the International UI/UX Design category at International Innovation 4Force 2026, competing alongside university delegates from Indonesia, Cambodia, Vietnam, Thailand, and Malaysia at Politeknik Negeri Lampung.",
+    "achievements.a3_badge": "3rd Winner (International)",
+    "achievements.a4_date": "October 30, 2026",
+    "achievements.a4_title": "Speaker: AI Utilization in UI/UX Design",
+    "achievements.a4_desc": "Invited as speaker delivering the topic 'Utilization of Artificial Intelligence in UI/UX Design' during HIMA Goes to School organized by Informatics Student Association at SMK Negeri 2 Bandar Lampung.",
+    "achievements.a4_badge": "Workshop Speaker",
     "contact.title_prefix": "Get in",
     "contact.title_highlight": "Touch",
     "contact.subtitle": "Let's Collaborate!",
@@ -347,12 +365,21 @@ export const skillsList = [
 
 export const achievementsList = [
   {
-    id: "unnes",
-    img: sertifikatUnnesImg,
-    dateKey: "achievements.a1_date",
-    titleKey: "achievements.a1_title",
-    descKey: "achievements.a1_desc",
-    badgeKey: "achievements.a1_badge"
+    id: "innovation4force",
+    img: sertifikatInnovation4ForceImg,
+    dateKey: "achievements.a3_date",
+    titleKey: "achievements.a3_title",
+    descKey: "achievements.a3_desc",
+    badgeKey: "achievements.a3_badge"
+  },
+  {
+    id: "pemateri_ai",
+    img: sertifikatPemateriAiImg,
+    dateKey: "achievements.a4_date",
+    titleKey: "achievements.a4_title",
+    descKey: "achievements.a4_desc",
+    badgeKey: "achievements.a4_badge",
+    delay: "0.1s"
   },
   {
     id: "uti",
@@ -361,7 +388,16 @@ export const achievementsList = [
     titleKey: "achievements.a2_title",
     descKey: "achievements.a2_desc",
     badgeKey: "achievements.a2_badge",
-    delay: "0.1s"
+    delay: "0.2s"
+  },
+  {
+    id: "unnes",
+    img: sertifikatUnnesImg,
+    dateKey: "achievements.a1_date",
+    titleKey: "achievements.a1_title",
+    descKey: "achievements.a1_desc",
+    badgeKey: "achievements.a1_badge",
+    delay: "0.3s"
   }
 ];
 
