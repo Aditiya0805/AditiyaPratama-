@@ -25,6 +25,8 @@ export default function SpaceCanvas() {
     });
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.domElement.id = 'space-canvas';
+    renderer.domElement.className = 'space-canvas';
     container.appendChild(renderer.domElement);
 
     // 1. Primary 3D Stars Field

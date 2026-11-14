@@ -51,6 +51,8 @@ html {
   scroll-behavior: smooth;
   font-size: 16px;
   background-color: var(--bg-color);
+  overflow-x: hidden;
+  max-width: 100vw;
 }
 
 body {
@@ -59,10 +61,8 @@ body {
   font-family: var(--font-body);
   line-height: 1.6;
   overflow-x: hidden;
+  max-width: 100vw;
   position: relative;
-  /* Safe area support for iPhone notch / Dynamic Island */
-  padding-left: env(safe-area-inset-left);
-  padding-right: env(safe-area-inset-right);
 }
 
 /* Typography Helpers */
@@ -157,52 +157,54 @@ button {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   z-index: 0;
   pointer-events: none;
   overflow: hidden;
 }
 
+.space-canvas,
 #space-canvas {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0.85;
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
 }
 
 .ambient-orange-orb {
   position: absolute;
   border-radius: 50%;
-  filter: blur(120px);
   pointer-events: none;
-  opacity: 0.15;
+  background: radial-gradient(circle, rgba(255, 107, 0, 0.18) 0%, rgba(255, 85, 0, 0.08) 45%, transparent 70%);
+  filter: blur(24px);
+  -webkit-filter: blur(24px);
+  will-change: transform;
 }
 
 .orb-1 {
-  width: 500px;
-  height: 500px;
-  background: #ff5500;
-  top: -100px;
-  right: -100px;
+  width: 420px;
+  height: 420px;
+  top: -80px;
+  right: -80px;
 }
 
 .orb-2 {
-  width: 450px;
-  height: 450px;
-  background: #ff8800;
-  bottom: 20%;
-  left: -150px;
+  width: 380px;
+  height: 380px;
+  bottom: 25%;
+  left: -100px;
+  background: radial-gradient(circle, rgba(255, 136, 0, 0.16) 0%, rgba(255, 107, 0, 0.06) 45%, transparent 70%);
 }
 
 .orb-3 {
-  width: 350px;
-  height: 350px;
-  background: #ff4500;
-  bottom: -100px;
-  right: 15%;
+  width: 300px;
+  height: 300px;
+  bottom: -60px;
+  right: 10%;
+  background: radial-gradient(circle, rgba(255, 69, 0, 0.16) 0%, rgba(255, 85, 0, 0.06) 45%, transparent 70%);
 }
 
 /* ==========================================================================
@@ -631,13 +633,15 @@ button {
 
 .poly-glow-radial {
   position: absolute;
-  top: 15%;
-  right: 10%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   width: 280px;
   height: 280px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(255, 107, 0, 0.45) 0%, transparent 70%);
-  filter: blur(40px);
+  background: radial-gradient(circle, rgba(255, 107, 0, 0.4) 0%, rgba(255, 107, 0, 0.12) 40%, transparent 70%);
+  filter: blur(28px);
+  -webkit-filter: blur(28px);
   z-index: 1;
 }
 
@@ -1761,6 +1765,37 @@ button {
     grid-template-columns: 1fr;
     gap: 30px;
   }
+
+  /* Responsive background ambient orbs without harsh edges */
+  .ambient-orange-orb {
+    opacity: 0.6;
+    filter: blur(16px);
+    -webkit-filter: blur(16px);
+  }
+
+  .orb-1 {
+    width: 240px;
+    height: 240px;
+    top: -40px;
+    right: -40px;
+    background: radial-gradient(circle, rgba(255, 107, 0, 0.14) 0%, rgba(255, 85, 0, 0.05) 50%, transparent 70%);
+  }
+
+  .orb-2 {
+    width: 200px;
+    height: 200px;
+    bottom: 30%;
+    left: -50px;
+    background: radial-gradient(circle, rgba(255, 136, 0, 0.12) 0%, transparent 70%);
+  }
+
+  .orb-3 {
+    width: 180px;
+    height: 180px;
+    bottom: -30px;
+    right: -30px;
+    background: radial-gradient(circle, rgba(255, 69, 0, 0.12) 0%, transparent 70%);
+  }
 }
 
 /* Additional 768px rules for sections not yet covered */
@@ -2642,48 +2677,73 @@ body.splash-active {
   }
 
   .hero-visual {
-    margin-top: 20px;
+    margin-top: 24px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
   }
 
   .hero-poly-backdrop {
     width: 280px;
-    height: 360px;
+    height: 350px;
     margin: 0 auto;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .poly-glow-radial {
+    width: 180px;
+    height: 180px;
+    filter: blur(20px);
+    -webkit-filter: blur(20px);
+    opacity: 0.55;
+  }
+
+  .poly-neon-frame {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
   }
 
   .hero-photo-wrapper {
     width: 230px;
     height: 300px;
+    border-radius: 16px;
   }
 
+  /* Hide raw watermark symbol on mobile to prevent clipping across text */
   .hero-code-watermark {
-    font-size: 3.5rem;
+    display: none;
   }
 
-  /* Float badges — smaller and tighter on mobile */
+  /* Float badges — positioned neatly around the frame without covering the photo */
   .hero-float-badge {
-    width: 38px;
-    height: 38px;
-    font-size: 1.1rem;
+    width: 36px;
+    height: 36px;
+    font-size: 1rem;
     border-radius: 10px;
   }
 
-  .float-badge-1 { top: 10px; left: -10px; }
-  .float-badge-2 { top: 80px; right: -12px; }
-  .float-badge-3 { bottom: 70px; left: -12px; }
-  .float-badge-4 { bottom: 20px; right: 0px; }
+  .float-badge-1 { top: -6px; left: 8px; }
+  .float-badge-2 { top: 65px; right: -4px; }
+  .float-badge-3 { bottom: 45px; left: -4px; }
+  .float-badge-4 { bottom: -6px; right: 24px; }
 
-  /* 3D Core — hide on very small screens to avoid overflow */
+  /* 3D Core — nicely sized and positioned at bottom of visual card */
   .hero-3d-core-container {
-    width: 130px;
-    height: 130px;
-    left: -5px;
-    bottom: -15px;
+    width: 110px;
+    height: 110px;
+    left: -15px;
+    bottom: -22px;
   }
 
   .hero-3d-badge {
-    font-size: 0.6rem;
-    padding: 3px 8px;
+    font-size: 0.54rem;
+    padding: 2px 7px;
+    bottom: -3px;
   }
 
   /* --- About Section --- */
@@ -2948,23 +3008,34 @@ body.splash-active {
     white-space: nowrap;
   }
 
-  /* --- Astronaut Companion — keep but smaller --- */
+  /* --- Astronaut Companion — keep in bottom corner --- */
+  .astronaut-companion {
+    bottom: 12px;
+    right: 12px;
+  }
+
   .astronaut-svg-container {
-    width: 56px;
-    height: 70px;
+    width: 48px;
+    height: 60px;
   }
 
   .astronaut-bubble {
-    font-size: 0.74rem;
-    padding: 6px 10px;
+    font-size: 0.72rem;
+    padding: 5px 9px;
     white-space: normal;
-    max-width: 180px;
+    max-width: 170px;
     right: 0;
+    bottom: 68px;
   }
 
-  /* --- Space Canvas Particles --- */
-  .space-canvas-bg {
-    opacity: 0.6;
+  /* --- Space Canvas & Background Orbs on Mobile --- */
+  .space-canvas,
+  #space-canvas {
+    opacity: 0.75;
+  }
+
+  .ambient-orange-orb {
+    opacity: 0.5;
   }
 }
 
